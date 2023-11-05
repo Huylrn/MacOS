@@ -1,0 +1,116 @@
+1.Oh my zsh 
+	GitHub: https://github.com/ohmyzsh/ohmyzsh#unattended-install
+	install: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	
+
+2.Theme
+    Font:
+        Github: https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+	    install: 
+		    first step:
+                brew tap homebrew/cask-fonts
+		        brew install font-hack-nerd-font
+		    next step:
+			    open Terminal -> Settings -> Profiles -> Text -> Font -> Search (Hack Nerd Font) -> Ok
+
+    powerlevel10k:
+	    GitHub: https://github.com/romkatv/powerlevel10k#homebrew
+	    install: 
+            brew install powerlevel10k
+		    echo “\n# Powerlevel 10k” >> ~/.zshrc
+		    echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+		
+
+3.Brew
+    step 1:
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    step 2:
+	    cd /opt/homebrew/bin/
+	    PATH=$PATH:/opt/homebrew/bin
+	    cd ~
+	    echo “\n# Homebrew” >> ~/.zshrc
+	    echo 'export PATH=$PATH:/opt/homebrew/bin' >> .zshrc
+
+
+5.Autojump
+	GitHub: https://github.com/wting/autojump#manual
+	install: 
+        cd ~/.config/zsh
+        git clone https://github.com/wting/autojump.git
+		cd autojump
+		./install.py 			
+		echo '\n# autojump' >> ~/.zshrc
+		echo '[[ -s /Users/huynguyen/.autojump/etc/profile.d/autojump.sh ]]' >> ~/.zshrc
+		echo 'source /Users/huynguyen/.autojump/etc/profile.d/autojump.sh' >> ~/.zshrc
+		echo "autoload -U compinit ; compinit" >> ~/.zshrc
+    uninstall:
+        cd ~/.config/zsh/autojump
+        ./uninstall.py
+
+
+6.zsh-autosuggestions
+	GitHub: https://github.com/zsh-users/zsh-autosuggestions
+	install:
+		cd ~/.oh-my-zsh/custom/plugins
+		git clone https://github.com/zsh-users/zsh-autosuggestions.git
+		
+		// add zsh-autosuggestions to .zshrc
+
+
+7.zsh-syntax-highlighting
+	Github: https://github.com/zsh-users/zsh-syntax-highlighting.git
+	install:
+		cd ~/.oh-my-zsh/custom/plugins
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+		// add zsh-syntax-highlighting to .zshrc
+
+
+8.zsh-autocomplete
+	GitHub: https://github.com/marlonrichert/zsh-autocomplete#manual-installation
+	install:
+		cd ~/.oh-my-zsh/custom/plugins
+		git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
+
+		// add zsh-autocomplete to .zshrc
+	Update:
+		% git -C ~autocomplete pull
+
+
+9.Colorls
+	Requirement: Nerd Font
+	GitHub :https://github.com/athityakumar/colorls#installation
+	install:
+	    sudo gem install colorls
+		echo “\n# colors” >> ~/.zshrc
+		echo 'source $(dirname $(gem which colorls))/tab_complete.sh' >> ~/.zshrc
+
+
+10.Code
+	video: https://i.stack.imgur.com/CZJGA.gif
+	install:
+		in vscode
+		Shift+command+p -> search (Shell Command: Install 'code' command in PATH) -> OK
+
+		echo "\n# code command - visual studio code" >> ~/.zshrc  
+		echo 'export PATH="$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"' >> ~/.zshrc
+	
+	
+11.Dook
+	defaults write com.apple.dock autohide-delay -float 0 && killall Dock
+
+
+12.NOPE
+	link: https://en.ihowto.tips/osx-apps-download-tutorials-tips-hacks-news/cum-activam-repetarea-caracterelor-cand-tinem-apasata-o-tasta-pe-macos-press-hold-key.html#:~:text=How%20to%20activate%20character%20repeat%20when%20you%20hold,normally%20would%20have%20had%20special%20characters%20behind%20it.
+		defaults write -g ApplePressAndHoldEnabled -bool false
+
+
+13.error
+    error: failed to push some refs to
+    git pull --rebase origin master
+
+
+14.Configure git
+	git config --global user.name "HuyNguyen"
+	git config --global user.email huuynguyendd@gmail.com
+

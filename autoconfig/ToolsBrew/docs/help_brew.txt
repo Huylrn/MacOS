@@ -1,0 +1,5 @@
+brew: Command not found
+You should check the version of brew 
+    % brew --version
+You can install brew according to the instructions here:
+     https://github.com/Huylrn/macos#homebrew
