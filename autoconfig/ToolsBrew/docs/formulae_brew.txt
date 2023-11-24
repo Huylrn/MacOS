@@ -1,1 +1,1 @@
-bat yarn git nvim lsd ruby node dust fzf lua diff-so-fancy duf bottom rectangle
+bat yarn git nvim lsd ruby node dust fzf lua diff-so-fancy duf bottom rectangle zsh-autocomplete 

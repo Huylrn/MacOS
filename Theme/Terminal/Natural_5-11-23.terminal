@@ -483,28 +483,34 @@
 	<integer>0</integer>
 	<key>ShouldRestoreContent</key>
 	<false/>
+	<key>ShowActiveProcessArgumentsInTabTitle</key>
+	<false/>
 	<key>ShowActiveProcessArgumentsInTitle</key>
 	<true/>
 	<key>ShowActiveProcessInTabTitle</key>
 	<true/>
 	<key>ShowActiveProcessInTitle</key>
 	<false/>
+	<key>ShowActivityIndicatorInTab</key>
+	<true/>
 	<key>ShowCommandKeyInTitle</key>
 	<false/>
+	<key>ShowComponentsWhenTabHasCustomTitle</key>
+	<true/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
 	<key>ShowRepresentedURLInTabTitle</key>
-	<true/>
+	<false/>
 	<key>ShowRepresentedURLInTitle</key>
 	<false/>
 	<key>ShowRepresentedURLPathInTabTitle</key>
-	<true/>
+	<false/>
 	<key>ShowRepresentedURLPathInTitle</key>
 	<false/>
 	<key>ShowShellCommandInTitle</key>
 	<false/>
 	<key>ShowTTYNameInTabTitle</key>
-	<false/>
+	<true/>
 	<key>ShowTTYNameInTitle</key>
 	<false/>
 	<key>ShowTerminalInDockIcon</key>
@@ -561,6 +567,8 @@
 	<true/>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>WindowTitle</key>
+	<string>Go now</string>
 	<key>columnCount</key>
 	<integer>74</integer>
 	<key>deleteSendsBackspace</key>

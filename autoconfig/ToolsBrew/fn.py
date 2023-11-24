@@ -160,7 +160,6 @@ def restart(message, your_color): # restart or exits
 
     elif your_color != -1 and your_color != 0:
         color((str)(your_color), message, "")
-    
     key = input()
     
     if key == "y":
