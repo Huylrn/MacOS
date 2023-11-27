@@ -25,7 +25,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes ZSH_THEME="robbyrussell" # Set list of themes to pick from when loading at random # Setting this variable when ZSH_THEME=random will cause zsh to load # a theme from this variable instead of looking in $ZSH/themes/ # If set to an empty array, this variable will have no effect.  # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" ) # Uncomment the following line to use case-sensitive completion.  # CASE_SENSITIVE="true" # Uncomment the following line to use hyphen-insensitive completion.  # Case-sensitive completion must be off. _ and - will be interchangeable.
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes 
+
+ZSH_THEME="half-life"
+
+# Set list of themes to pick from when loading at random # Setting this variable when ZSH_THEME=random will cause zsh to load # a theme from this variable instead of looking in $ZSH/themes/ # If set to an empty array, this variable will have no effect.  # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" ) # Uncomment the following line to use case-sensitive completion.  # CASE_SENSITIVE="true" # Uncomment the following line to use hyphen-insensitive completion.  # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
@@ -103,33 +107,43 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# My resource
-source ~/.config/zsh/source.zsh
-
-# My function
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.terminal.zsh ]] || source ~/.p10k.terminal.zsh
+
+# My resource
+source $HOME/.config/zsh/source.zsh
+
+
+# Powerlevel 10k
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+
+if [ $TERM_PROGRAM != "Apple_Terminal" ]; then
+
+  source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+  
+  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
 
 # colors
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 # autojump
-[[ -s /Users/huynguyen/.autojump/etc/profile.d/autojump.sh ]] && source /Users/huynguyen/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit; compinit
-   
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+
+#auto completion
+autoload -U compinit; compinit   
 #autoload -Uz compinit && compinit
 
 # Homebrew 
 # export PATH=$PATH:/opt/homebrew/bin
 
-# Powerlevel 10k
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # zsh-autocomple
 #fpath=(/usr/local/share/zsh-completions $fpath)
 #brew install zsh-autocomplete
 source /opt/homebrew/Cellar/zsh-autocomplete/23.07.13/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -147,10 +161,10 @@ zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
 # Autocompletion
-zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
+zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 4 )) )'
 
 # Override history search.
-zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
+zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 5
 
 # History menu.
 zstyle ':autocomplete:history-search-backward:*' list-lines 256
@@ -175,7 +189,7 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 }
 
 
-# disable up and wdown (keyboard)
+# disable up and down (keyboard)
 () {
    local -a prefix=( '\e'{\[,O} )
    local -a up=( ${^prefix}A ) down=( ${^prefix}B )
@@ -190,8 +204,4 @@ bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 #===========================================#
 #-------------Configure END-----------------#
 #===========================================#
-#export PATH=$PATH:~/bin
-
-# zstyle ':autocomplete:tab:*' insert-unambiguous yes
-# bash-completion
 

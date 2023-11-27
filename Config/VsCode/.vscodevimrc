@@ -16,6 +16,9 @@ nnoremap j jzz
 nnoremap k kzz
 nnoremap H ^
 nnoremap L $
+nnoremap ' %
+nnoremap " V%
+vnoremap ' %V
 
 "b and n (b and e)
 map m e
@@ -44,7 +47,7 @@ nnoremap U <C-r>
 inoremap <C-l> <C-o>:
 
 "ESC
-inoremap jk <ESC>:w<CR>
+inoremap jk <ESC>
 
 
 "move cursor on windows
@@ -63,7 +66,7 @@ nnoremap \k <C-w>k
 nnoremap | <C-w><C-w>
 
 "Command quick
-inoremap \\ <C-o>
+" inoremap \\ <C-o>
 
 "resize split windows
 nnoremap <C-j> <C-w>-
@@ -78,6 +81,7 @@ vnoremap K 5k
 vnoremap i A
 vnoremap g gc
 vnoremap / <ESC>/
+vnoremap <ESC> <ESC><ESC>
 
 "Indent line
 vnoremap > >gv

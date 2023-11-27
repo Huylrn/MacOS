@@ -1,4 +1,3 @@
-
 // s1 -
 // s2 - Replace word
 // s3 -
@@ -11,14 +10,16 @@
 // s9 - Problems
 // s10 - Change Ctrl+space -> Alt+space
 // s11 - preview markdown
-// s12 - Directory
+// s12 - Explorer
 // s13 - 
 // s14 - Change ctrl+/ -> alt+/ 
 // s15 - Vim.remap
 // s16 - Change ctrl+p -> alt+p
+// s17 - Terminal
 // s - Disable keybindings
 [
     //s1--------------- 
+    // start
     {
         "key": "cmd+d",
         "command": "notebook.cell.copyDown",
@@ -34,10 +35,24 @@
         "command": "editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
     },
+    // start
+    {
+        "key": "cmd+n", // new window
+        "command": "workbench.action.newWindow"
+    },
+    {
+        "key": "cmd+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    //
+    {
+        "key": "shift+cmd+n",
+        "command": "-workbench.action.newWindow"
+    },
     //e1----------------------------------------------
-    
     //s2--------------------------
     // =====Replace word===== //
+    // start
     {
         "key": "shift+alt+down",
         "command": "editor.action.addSelectionToNextFindMatch",
@@ -46,22 +61,36 @@
     {
         "key": "shift+alt+down",
         "command": "-notebook.cell.copyDown",
-        "when": "notebookEditorFocused && !inputFocus" 
+        "when": "notebookEditorFocused && !inputFocus"
     },
     {
         "key": "shift+alt+down",
         "command": "-editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
     },
+    // start
+    {
+        "key": "shift+alt+up",
+        "command": "editor.action.addSelectionToPreviousFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "-notebook.cell.copyUp",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "-editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
     //e2-----------------------------------------------
-
     // 
     {
         "key": "shift+cmd+d",
         "command": "notebook.cell.copyUp",
         "when": "notebookEditorFocused && !inputFocus"
     },
-
     // 
     {
         "key": "cmd+right",
@@ -73,78 +102,67 @@
         "command": "extension.vim_cmd+left",
         "when": "editorTextFocus && vim.active && vim.use<D-left> && !inDebugRepl && vim.mode != 'Insert'"
     },
-    
-    //s3---------------------- 
-    
-    //e3----------------------------------------
-  
-    
-    
-    
+    //s3------------------------
+    // ======Which Key====== //
+    {
+        "key": "shift+space", // which key extension
+        "command": "whichkey.show",
+    },
+    {
+        "key": "left", // which key extension
+        "command": "whichkey.undoKey",
+        "when": "whichkeyVisible"
+    },
+    //e3-------------------------
     //=============================================================================================
     // VIM - KEYMAPPS
-    
     //s4-----------------------------
     // =====Move tab begin====== //
-
     {
-        "key": ",",
+        "key": ",", // move previous tab
         "command": "workbench.action.previousEditor",
         "when": "vim.active && vim.mode != 'insert' && vim.mode != 'visual' && !inputFocus"
     },
     {
-        "key": ".",
+        "key": ".", // move next tab
         "command": "workbench.action.nextEditor",
         "when": "vim.active && vim.mode != 'Insert' && vim.mode != 'visual' && !inputFocus"
     },
     {
-        "key": "Ctrl+,",
+        "key": "Ctrl+,", // move previous tab
         "command": "workbench.action.previousEditor",
         "when": "vim.active"
     },
     {
-        "key": "Ctrl+.",
+        "key": "Ctrl+.", // move next tab
         "command": "workbench.action.nextEditor",
         "when": "vim.active"
     },
-
-    // show all tab
     {
-        "key": "ctrl+/",
+        "key": "ctrl+/", // show all opened tab
         "command": "workbench.action.showAllEditors",
         "when": "vim.active"
     },
     //e4---------------------------------------------
- 
-    
-    // quit explorer (SideBar)
-    {
-        "key": "q",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "vim.active && !editorTextFocus  && filesExplorerFocus && !inputFocus"
-    },
-
-
+    // {
+    //     "key": "q", // quit explorer (SideBar)
+    //     "command": "workbench.action.toggleSidebarVisibility",
+    //     "when": "vim.active && !editorTextFocus  && filesExplorerFocus && !inputFocus"
+    // },
     //s5-----------------
     // ====Debug==== //
-    
-    // Stop
     {
-        "key": "q",
+        "key": "q", // Stop
         "command": "workbench.action.debug.stop",
         "when": "vim.active && inDebugMode"
     },
-
-    // restart
     {
-        "key": "shift+r",
+        "key": "shift+r", // restart
         "command": "workbench.action.debug.restart",
         "when": "vim.active && inDebugMode"
     },
-
-    // run
     {
-        "key": "r",
+        "key": "r", // run
         "command": "workbench.action.debug.run",
         "when": "vim.active && inDebugMode"
     },
@@ -153,111 +171,80 @@
         "command": "workbench.action.debug.pause",
         "when": "vim.active && inDebugMode"
     },
-
-    // step out
     {
-        "key": "up",
+        "key": "up", // step out
         "command": "workbench.action.debug.stepOut",
         "when": "vim.active && inDebugMode && debugState == 'stopped'"
     },
-
-    // step into
     {
-        "key": "down",
+        "key": "down", // step into
         "command": "workbench.action.debug.stepInto",
         "when": "vim.active && inDebugMode && debugState == 'stopped'"
     },
-    //e5-----------------------------------
-
+    //e5--------------------------------------------------------------
     //s6-----------------
     // ====CLOSE==== //
-
-    // close SideBar and quit explorer
     {
-        "key": "shift+escape",
+        "key": "shift+escape", // close SideBar and quit explorer
         "command": "workbench.action.closeSidebar",
         "when": "vim.active && !filesExplorerFocus && !inKeybindings && !inKeybindingsSearch && sideBarFocus && !editorTextFocus"
     },
-
-    // close panel
     {
-        "key": "escape",
+        "key": "escape", // close panel
         "command": "workbench.action.closePanel",
         "when": "vim.active && !inKeybindings && panelFocus && !inKeybindingsSearch && !editorTextFocus"
     },
-
-    // close view search
     {
-        "key": "escape",
+        "key": "escape", // close view search
         "command": "workbench.action.closeAuxiliaryBar",
         "when": "vim.active && searchViewletFocus"
     },
-
-    // close secondary SideBar
     {
-        "key": "escape",
+        "key": "escape", // close secondary SideBar
         "command": "workbench.action.closeAuxiliaryBar",
         "when": "vim.active && auxiliaryBarFocus && !searchViewletFocus && !editorTextFocus"
     },
-
-    // close other tab
     {
-        "key": "ctrl+cmd+/",
+        "key": "ctrl+cmd+/", // close other tab
         "command": "workbench.action.closeOtherEditors",
         "when": "vim.action && vim.mode != 'Insert'"
     },
-    //e6----------------------------------------------------------------
-    
-    
-    
-    
+    //e6-----------------------------------------------
     //s7--------------------------
     // ====diff (TIMELINE)==== //
-    
-    // next change in diff mode
     {
-        "key": "down",
+        "key": "down", // next change in diff mode
         "command": "workbench.action.compareEditor.nextChange",
         "when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
     },
-    
-    //  previous change in diff mode
     {
-        "key": "up",
+        "key": "up", //  previous change in diff mode
         "command": "workbench.action.compareEditor.previousChange",
         "when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
     },
-    
-    // to reduce in diff mode
     {
-        "key": "f",
+        "key": "f", // to reduce in diff mode
         "command": "diffEditor.collapseAllUnchangedRegions",
         "when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
     },
-    
-    // show all in diff mode
     {
-        "key": "shift+f",
+        "key": "shift+f", // show all in diff mode
         "command": "diffEditor.showAllUnchangedRegions",
         "when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
     },
-
-    // switch
     {
-        "key": "right",
+        "key": "right", // switch
         "command": "diffEditor.switchSide",
         "when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
     },
     {
-        "key": "left",
+        "key": "left", // switch
         "command": "diffEditor.switchSide",
         "when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
     },
     //e7--------------------------------------------------------------- 
-
     //s8-------------------------------
     // ====Fix issue vietnamese==== //
-
     {
         "key": "backspace",
         "command": "-extension.vim_backspace",
@@ -274,37 +261,18 @@
         "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !markdown.extension.editor.cursor.inFencedCodeBlock && !markdown.extension.editor.cursor.inMathEnv && !suggestWidgetVisible && vim.mode != 'CommandlineInProgress' && vim.mode != 'EasyMotionInputMode' && vim.mode != 'EasyMotionMode' && vim.mode != 'Normal' && vim.mode != 'Replace' && vim.mode != 'SearchInProgressMode' && vim.mode != 'SurroundInputMode' && vim.mode != 'Visual' && vim.mode != 'VisualBlock' && vim.mode != 'VisualLine' && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
     },
     //e8----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    // // mouse-right
     {
-        "key": "shift+ctrl+/",
-        "command": "editor.action.showContextMenu",
-        "when": "vim.active"
-    },
-    
-    // to disable "l" in vim
-    {
-        "key": "l",
+        "key": "l", // to disable "l" in vim
         "command": "-list.select",
         "when": "listFocus && !inputFocus"
     },
-    
-    // to disable "enter" in explorer
     {
-        "key": "enter",
+        "key": "enter", // to disable "enter" in explorer
         "command": "-renameFile",
         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-    
-    // full screen
-    {
-        "key": "cmd+n",
-        "command": "workbench.action.newWindow"
-    },
-    
     //s9-------------------
     // ====Problems==== //
-    
     {
         "key": "down",
         "command": "editor.action.marker.next",
@@ -315,7 +283,6 @@
         "command": "editor.action.marker.prev",
         "when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus",
     },
-
     // Show Hover (problems)
     {
         "key": "ctrl+p",
@@ -323,11 +290,8 @@
         "when": "vim.active && editorTextFocus"
     },
     //e9-----------------------------------------------------------
-    
-    
     //s10-----------------------------------------------
     // ==========Change C+space -> A+space========== //
-    
     // start
     {
         "key": "alt+space",
@@ -339,7 +303,6 @@
         "command": "-editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
     },
-    
     // start
     {
         "key": "alt+space",
@@ -351,7 +314,6 @@
         "command": "-extension.vim_ctrl+space",
         "when": "editorTextFocus && vim.active && vim.use<C-space> && !inDebugRepl && vim.mode != 'Insert'"
     },
-    
     // start
     {
         "key": "alt+space",
@@ -363,7 +325,6 @@
         "command": "-focusSuggestion",
         "when": "suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
     },
-    
     // start
     {
         "key": "alt+space",
@@ -375,7 +336,6 @@
         "command": "-toggleSuggestionDetails",
         "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
     },
-    
     // start
     {
         "key": "alt+space",
@@ -386,8 +346,7 @@
         "key": "ctrl+space",
         "command": "-workbench.action.terminal.sendSequence",
         "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
-    }, 
-    
+    },
     // start
     {
         "key": "alt+space",
@@ -400,11 +359,8 @@
         "when": "config.terminal.integrated.shellIntegration.suggestEnabled && terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
     },
     //e10--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
-    
-    
     //s11----------------------------
     // =====preview markdown===== //
-    
     {
         "key": "shift+cmd+v",
         "command": "markdown-preview-enhanced.openPreviewToTheSide",
@@ -421,60 +377,50 @@
         "when": "editorLangId == 'markdown'"
     },
     //e11------------------------------------------------------
-    
     //s12-------------------
-    // ====Directory==== //
-    
+    // ====Explorer==== //
     // rename file in explorer
     {
         "key": "r",
         "command": "renameFile",
         "when": "vim.active && filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-
     // create new file
     {
         "key": "a",
         "command": "explorer.newFile",
         "when": "vim.active && filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-  
-
     // create new folder
     {
         "key": "shift+a",
         "command": "explorer.newFolder",
         "when": "vim.active && filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-    
     // open with split to side
     {
         "key": "v",
         "command": "explorer.openToSide",
         "when": "vim.active && filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-     
     // delete file
     {
         "key": "d d",
         "command": "moveFileToTrash",
         "when": "vim.active && explorerResourceMoveableToTrash && filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
     },
-    
     // Cut file
     {
         "key": "c",
         "command": "filesExplorer.cut",
         "when": "vim.active && filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
-    
     // Paste file
     {
         "key": "shift+c",
         "command": "filesExplorer.paste",
         "when": "vim.active && filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
     },
-
     // open folder
     {
         "key": "l",
@@ -482,42 +428,32 @@
         "when": "vim.active && listFocus && treeElementCanExpand && !inputFocus || listFocus && treeElementHasChild && !inputFocus"
     },
     //e12---------------------------------------------------------------------------------------------------------------------------
-    
-
-
     //s13---------
     // 
-   
     {
         "key": "alt+j",
         "command": "editor.action.moveLinesDownAction",
-        "when": "vim.mode && editorTextFocus && !editorReadonly && vim.mode != 'Insert'"
+        "when": "vim.active && editorTextFocus && !editorReadonly && vim.mode != 'Insert'"
     },
     {
         "key": "alt+k",
         "command": "editor.action.moveLinesUpAction",
-        "when": "vim.mode && editorTextFocus && !editorReadonly && vim.mode != 'Insert'"
+        "when": "vim.active && editorTextFocus && !editorReadonly && vim.mode != 'Insert'"
     },
-
     // move selected to right or left
-    {
-        "key": "alt+right",
-        "command": "editor.action.moveCarretRightAction",
-        "when": "vim.active && editorTextFocus && vim.mode == 'Visual'"
-    },
-    {
-        "key": "alt+left",
-        "command": "editor.action.moveCarretLeftAction",
-        "when": "vim.active && editorTextFocus && vim.mode == 'Visual'"
-    },
-
-    
+    // {
+    //     "key": "alt+right",
+    //     "command": "editor.action.moveCarretRightAction",
+    //     "when": "vim.active && editorTextFocus && vim.mode == 'Visual'"
+    // },
+    // {
+    //     "key": "alt+left",
+    //     "command": "editor.action.moveCarretLeftAction",
+    //     "when": "vim.active && editorTextFocus && vim.mode == 'Visual'"
+    // },
     //e13-----------------------------------
-    
-    
     //s14--------------------------------
     // ====Change ctrl+/ -> alt+/==== //
-    
     {
         "key": "alt+/",
         "command": "editor.action.accessibleViewAcceptInlineCompletion",
@@ -539,38 +475,58 @@
         "when": "terminalFocus"
     },
     //e14------------------------------------------------------
-    
     //s15-------------------
     // ====Vim.remap==== //
-    
-    // quick insert mode
     {
-        "key": "shift+down",
+        "key": "shift+down", // quick insert mode
         "command": "vim.remap",
         "when": "inputFocus && vim.mode != 'Insert'",
         "args": {
-          "after": ["i"]
+            "after": [
+                "i"
+            ]
         }
     },
     {
-        "key": "shift+up",
+        "key": "shift+up", // quick visual mode
         "command": "vim.remap",
         "when": "inputFocus && vim.mode != 'Insert'",
         "args": {
-          "after": ["v"]
+            "after": [
+                "v"
+            ]
+        }
+    },
+    {
+        "key": "ctrl+]", // move focus to right
+        "command": "vim.remap",
+        "when": "vim.mode != 'Insert'",
+        "args": {
+            "after": [
+                "<C-w>",
+                "l"
+            ]
+        }
+    },
+    {
+        "key": "ctrl+[", // move focus to left
+        "command": "vim.remap",
+        "when": "vim.mode != 'Insert'",
+        "args": {
+            "after": [
+                "<C-w>",
+                "h"
+            ]
         }
     },
     //e15----------------
-
     {
         "key": "alt+d",
         "command": "editor.action.duplicateSelection",
         "when": "vim.active"
     },
-
     //s16-------------------------------
     // ===Change ctrl+p -> alt+p==== //
-
     // start
     {
         "key": "alt+p",
@@ -582,7 +538,6 @@
         "command": "-showPrevParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
     },
-
     // start
     {
         "key": "alt+p",
@@ -594,7 +549,6 @@
         "command": "-selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
     },
-
     // start
     {
         "key": "alt+p",
@@ -606,7 +560,6 @@
         "command": "-selectPrevCodeAction",
         "when": "codeActionMenuVisible"
     },
-
     // start
     {
         "key": "alt+p",
@@ -618,7 +571,6 @@
         "command": "-list.focusUp",
         "when": "listFocus && !inputFocus"
     },
-
     // start
     {
         "key": "alt+p",
@@ -630,7 +582,6 @@
         "command": "-extension.vim_ctrl+p",
         "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
     },
-
     // start
     {
         "key": "alt+p",
@@ -642,7 +593,6 @@
         "command": "-cursorUp",
         "when": "textInputFocus"
     },
-
     // start
     {
         "key": "alt+p",
@@ -655,28 +605,32 @@
         "when": "inQuickOpen"
     },
     //e16--------------------
+    //s17-------------------
+    //=====Terminal=====//
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.terminal.resizePaneDown",
+        "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.terminal.resizePaneUp",
+        "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.terminal.resizePaneLeft",
+        "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.terminal.resizePaneRight",
+        "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    //e17-----------------------------------------------------------------------------------------------------------
     //s-----------------------
     {
-        "key": "shift+alt+up",
-        "command": "-editor.action.copyLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    
-    //
-    {
-        "key": "cmd+n",
-        "command": "-workbench.action.files.newUntitledFile"
-    },
-    
-    //
-    {
-        "key": "shift+cmd+n",
-        "command": "-workbench.action.newWindow"
-    },
-    
-    // disable copy in vim mode
-    {
-        "key": "cmd+c",
+        "key": "cmd+c", // disable copy in vim mode
         "command": "-extension.vim_cmd+c",
         "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
     },
@@ -685,13 +639,19 @@
         "command": "workbench.action.quickSwitchWindow"
     },
     {
-        "key": "shift+alt+up",
-        "command": "editor.action.addSelectionToPreviousFindMatch",
-        "when": "editorFocus"
+        "key": "shift+ctrl+alt+up",
+        "command": "multiCommand.up1LineKeepCursor",
+        "when": "editorTextFocus"
     },
     {
-        "key": "shift+alt+up",
-        "command": "-notebook.cell.copyUp",
-        "when": "notebookEditorFocused && !inputFocus"
+        "key": "shift+ctrl+alt+down",
+        "command": "multiCommand.down1LineKeepCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+/",
+        "command": "quickMenuBuilder.openQuickMenu",
+        "args": "Help editor Menu",
+        "when": "editorTextFocus"
     }
 ]
