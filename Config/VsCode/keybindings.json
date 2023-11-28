@@ -813,4 +813,8 @@
         "command": "editor.action.revealDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
+    {
+        "key": "ctrl+cmd+k",
+        "command": "editor.action.goToTypeDefinition"
+    },
 ]

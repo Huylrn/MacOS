@@ -268,11 +268,10 @@
     {
       "before": [
         "leader",
-        "x"
+        "up"
       ],
       "commands": [
         "editor.action.focusStickyScroll"
-        //workbench.action.quickSwitchWindow
       ]
     },
     // jump to function
@@ -378,6 +377,18 @@
         "editor.action.showDefinitionPreviewHover"
       ]
     },
+    {
+      "before": [
+        "leader",
+        "S"
+      ],
+      "after": [
+        "B",
+        "v",
+        "E",
+        // "y"
+      ],
+    },
   ],
   //e--------------------------------------- 
   //s----------------------- 
@@ -478,8 +489,8 @@
     "statusBar.background": "#1F1B2C",
     "statusBar.noFolderBackground": "#1F1B2C",
     "statusBar.debuggingBackground": "#1F1B2C",
-    "statusBar.foreground": "#ffffff",
-    "statusBar.debuggingForeground": "#ffffff",
+    "statusBar.foreground": "#ff0000",
+    "statusBar.debuggingForeground": "#ff0000",
     "editorCursor.foreground": "#673AB7"
   },
   //e-------------------------------------------
@@ -788,7 +799,6 @@
   "editor.scrollbar.horizontalScrollbarSize": 4,
   "editor.suggest.showStatusBar": true,
   "editor.scrollbar.verticalScrollbarSize": 10,
-  "editor.minimap.renderCharacters": false,
   "window.newWindowDimensions": "maximized",
   "[shellscript]": {
     "files.eol": "\n",
@@ -1268,6 +1278,16 @@
           "command": "workbench.action.showAllEditors",
         },
         {
+          "name": "Show Definition Preview hover",
+          "description": "<leader><leader><leader>.",
+          "command": "editor.action.showDefinitionPreviewHover"
+        },
+        {
+          "name": "Show Definition",
+          "description": "<C-p>",
+          "command": "editor.action.showHover",
+        },
+        {
           "name": "Move focus to statusBar",
           "description": "<leader>b",
           "command": "workbench.action.focusStatusBar"
@@ -1294,7 +1314,7 @@
         },
         {
           "name": "Move focus to sticky scroll",
-          "description": "<leader>x or Option+tab",
+          "description": "<leader>up or Option+tab",
           "command": "editor.action.focusStickyScroll"
         },
         {
@@ -1473,6 +1493,11 @@
       "label": "Help Search in editor Menu", // SEARCH IN EDITOR
       "items": [
         {
+          "name": "Show more information",
+          "description": "Option+- or Option+=",
+          "command": ""
+        },
+        {
           "name": "Move up-down in box",
           "description": "Command+up or Command+down",
           "command": "",
@@ -1596,5 +1621,6 @@
   "editor.autoClosingBrackets": "always",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "workbench.activityBar.visible": false,
-  "apc.menubar.compact": true
+  "apc.menubar.compact": true,
+  "editor.minimap.enabled": false
 }
