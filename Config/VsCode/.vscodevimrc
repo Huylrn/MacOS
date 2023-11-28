@@ -16,7 +16,6 @@ nnoremap j jzz
 nnoremap k kzz
 nnoremap H ^
 nnoremap L $
-nnoremap ' %
 nnoremap " V%
 vnoremap ' %V
 
@@ -82,6 +81,7 @@ vnoremap i A
 vnoremap g gc
 vnoremap / <ESC>/
 vnoremap <ESC> <ESC><ESC>
+vnoremap o ykpgv
 
 "Indent line
 vnoremap > >gv
