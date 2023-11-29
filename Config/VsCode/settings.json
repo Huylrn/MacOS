@@ -1,7 +1,7 @@
 {
   // font size
   "editor.fontSize": 19.5,
-  "terminal.integrated.fontSize": 20,
+  "terminal.integrated.fontSize": 21,
   "debug.console.fontSize": 14,
   // Font
   "editor.fontLigatures": false,
@@ -56,7 +56,14 @@
   "vim.targets.smartQuotes.enable": false,
   "vim.targets.smartQuotes.aIncludesSurroundingSpaces": false,
   "vim.startofline": false,
-  "whichkey.bindingOverrides": [],
+  "whichkey.bindingOverrides": [
+    // {
+    //   "keys": "t.s",
+    //   "name": "Go to line",
+    //   "type": "command",
+    //   "command":"workbench.action.gotoLine",
+    // },
+  ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
@@ -67,15 +74,42 @@
         "workbench.action.findInFiles"
       ]
     },
-    // {
-    //   "before": [
-    //     "leader"
-    //     // "<space>"
-    //   ],
-    //   "commands": [
-    //     "whichkey.show"
-    //   ]
-    // }
+    {
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        "vspacecode.space"
+      ]
+    },
+    {
+      "before": [
+        ","
+      ],
+      "commands": [
+        "vspacecode.space",
+        {
+          "command": "whichkey.triggerKey",
+          "args": "m"
+        }
+      ]
+    },
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    }
   ],
   //Start
   "vim.normalModeKeyBindings": [
@@ -116,7 +150,19 @@
         "'"
       ],
       "commands": [
-        "workbench.action.terminal.openNativeConsole"
+        "workbench.action.files.save"
+        // "workbench.action.terminal.openNativeConsole"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "leader",
+        "leader",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.gotoLine"
       ]
     },
     // close others tab 
@@ -347,16 +393,6 @@
         "file-browser.open"
       ]
     },
-    // replace on workspace
-    {
-      "before": [
-        "leader",
-        "r"
-      ],
-      "commands": [
-        "workbench.action.replaceInFiles"
-      ]
-    },
     // Go to bracket "{}[]()"
     {
       "before": [
@@ -377,6 +413,7 @@
         "editor.action.showDefinitionPreviewHover"
       ]
     },
+    // select text
     {
       "before": [
         "leader",
@@ -685,9 +722,9 @@
     "*.scpt": "applescript",
     "Color_shell": "shellscript"
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
+  // "[markdown]": {
+  //   "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  // },
   // Preview MarkDown
   "markdown-preview-enhanced.previewTheme": "night.css",
   "markdown-preview-enhanced.codeBlockTheme": "one-dark.css",
@@ -698,23 +735,6 @@
   "update.mode": "manual",
   // Mouse
   "editor.mouseWheelScrollSensitivity": 1,
-  // "animations.Auto-Install": false,
-  // "animations.Active": "None",
-  // "animations.Command-Palette": "None",
-  // "animations.CursorAnimation": true,
-  // "animations.CursorAnimationOptions": {
-  //   "Color": "#ffffff",
-  //   "CursorStyle": "block",
-  //   "TrailLength": 8
-  // },
-  // "animations.Custom-CSS": false,
-  // "animations.Enabled": false,
-  // "animations.Durations": {},
-  // "animations.Focus-Dimming-Amount": 0,
-  // "animations.Focus-Dimming-Mode": "None",
-  // "animations.Scrolling": "None",
-  // "animations.Smooth-Mode": false,
-  // "animations.Tabs": "None",
   "apc.statusBar": {
     "fontSize": 14,
     "height": 25,
@@ -751,10 +771,6 @@
   "workbench.editorAssociations": {
     "*.js": "default"
   },
-  //   // Run C++
-  //   // Run C++
-  // },
-  // },
   "cSpell.customDictionaries": {
     "custom-dictionary-user": {
       "name": "custom-dictionary-user",
@@ -764,6 +780,8 @@
     }
   },
   "cSpell.enableFiletypes": [
+    "Vimscript",
+    "lua",
     "shellscript",
     "vimrc"
   ],
@@ -788,13 +806,11 @@
     "FIG_NEW_SESSION": "1"
   },
   "terminal.integrated.shellIntegration.suggestEnabled": true,
-  "terminal.integrated.tabs.enabled": false,
   "git.openRepositoryInParentFolders": "always",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.editor.pinnedTabsOnSeparateRow": true,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.layoutControl.enabled": false,
   "editor.autoClosingQuotes": "languageDefined",
   "editor.scrollbar.horizontalScrollbarSize": 4,
   "editor.suggest.showStatusBar": true,
@@ -804,10 +820,10 @@
     "files.eol": "\n",
     "editor.autoClosingQuotes": "always"
   },
-  "whichkey.bindings": [
+  "whichkey.bindings": [ //menu-1
     {
       "key": " ",
-      "name": "Search keybindings",
+      "name": "»»»Search keybindings«««",
       "type": "command",
       "command": "whichkey.searchBindings"
     },
@@ -823,21 +839,9 @@
     {
       "key": "/",
       "name": "Search in project",
+      "icon": "search",
       "type": "command",
       "command": "search.action.openNewEditorToSide"
-    },
-    {
-      "key": "v",
-      "name": "Smart select/expand region transient",
-      "type": "commands",
-      "commands": [
-        "editor.action.smartSelect.grow",
-        "whichkey.showTransient"
-      ],
-      "args": [
-        null,
-        "whichkey.transient.smartExpand"
-      ]
     },
     {
       "key": ".",
@@ -853,24 +857,28 @@
         {
           "key": "H",
           "name": "Move editor into left group",
+          "icon": "triangle-left",
           "type": "command",
           "command": "workbench.action.moveEditorToLeftGroup"
         },
         {
           "key": "L",
           "name": "Move editor into right group",
+          "icon": "triangle-right",
           "type": "command",
           "command": "workbench.action.moveEditorToRightGroup"
         },
         {
           "key": "J",
           "name": "Move editor into below group",
+          "icon": "triangle-down",
           "type": "command",
           "command": "workbench.action.moveEditorToBelowGroup"
         },
         {
           "key": "K",
           "name": "Move editor into above group",
+          "icon": "triangle-up",
           "type": "command",
           "command": "workbench.action.moveEditorToAboveGroup"
         },
@@ -904,6 +912,7 @@
     {
       "key": "f",
       "name": "« File »",
+      "icon": "file",
       "type": "bindings",
       "bindings": [
         {
@@ -948,6 +957,7 @@
     {
       "key": "s",
       "name": "Search with selection",
+      "icon": "search",
       "type": "bindings",
       "commands": [
         "editor.action.addSelectionToNextFindMatch",
@@ -959,12 +969,6 @@
       "name": "« Show »",
       "type": "bindings",
       "bindings": [
-        {
-          "key": "n",
-          "name": "Show explorer",
-          "type": "command",
-          "command": "workbench.view.explorer"
-        },
         {
           "key": "s",
           "name": "Show search",
@@ -982,6 +986,12 @@
           "name": "Show test",
           "type": "command",
           "command": "workbench.view.extension.test"
+        },
+        {
+          "key": "T",
+          "name": "Show external terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.openNativeConsole"
         },
         {
           "key": "r",
@@ -1012,7 +1022,13 @@
           "name": "Show debug console",
           "type": "command",
           "command": "workbench.debug.action.toggleRepl"
-        }
+        },
+        {
+          "key": "\t",
+          "name": "« More ... »",
+          "type": "command",
+          "command": "workbench.action.openView"
+        },
       ]
     },
     {
@@ -1045,11 +1061,17 @@
           "command": "editor.action.toggleWordWrap"
         },
         {
-          "key": "f",
+          "key": "r",
           "name": "Font zooming transient",
           "type": "command",
           "command": "whichkey.showTransient",
           "args": "whichkey.transient.fontZooming"
+        },
+        {
+          "key": "f",
+          "name": "Change font",
+          "type": "command",
+          "command": "font-switcher.switchFont"
         },
       ]
     },
@@ -1107,7 +1129,37 @@
           "type": "command",
           "command": "editor.action.transformToUppercase"
         },
+        {
+          "key": "v",
+          "name": "Smart select/expand region transient",
+          "type": "commands",
+          "commands": [
+            "editor.action.smartSelect.grow",
+            "whichkey.showTransient"
+          ],
+          "args": [
+            null,
+            "whichkey.transient.smartExpand"
+          ]
+        },
       ]
+    },
+    {
+      "key": "T",
+      "name": "Toggle foldfix(vim)",
+      "type": "command",
+      "command": "toggle",
+      "args": {
+        "id": "fold fix",
+        "value": [
+          {
+            "vim.foldfix": true,
+          },
+          {
+            "vim.foldfix": false,
+          }
+        ]
+      }
     },
     // {
     //   "key": "z",
@@ -1131,11 +1183,13 @@
     {
       "key": "?",
       "name": "Shortcuts Help",
+      "icon": "question",
       "type": "bindings",
       "bindings": [
         {
           "key": "d",
           "name": "Debug help",
+          "icon": "debug",
           "type": "command",
           "command": "quickMenuBuilder.openQuickMenu",
           "args": "Help Debug Menu",
@@ -1143,6 +1197,7 @@
         {
           "key": "e",
           "name": "Editor help",
+          "icon": "file",
           "type": "command",
           "command": "quickMenuBuilder.openQuickMenu",
           "args": "Help editor Menu",
@@ -1150,6 +1205,7 @@
         {
           "key": "t",
           "name": "Diff/Timeline help",
+          "icon": "clock",
           "type": "command",
           "command": "quickMenuBuilder.openQuickMenu",
           "args": "Help Diff Menu",
@@ -1157,6 +1213,7 @@
         {
           "key": "E",
           "name": "Explorer help",
+          "icon": "list-tree",
           "type": "command",
           "command": "quickMenuBuilder.openQuickMenu",
           "args": "Help Explorer Menu",
@@ -1164,6 +1221,7 @@
         {
           "key": "s",
           "name": "Search help",
+          "icon": "search",
           "type": "command",
           "command": "quickMenuBuilder.openQuickMenu",
           "args": "Help Search Menu",
@@ -1171,6 +1229,7 @@
         {
           "key": "S",
           "name": "Search in editor help",
+          "icon": "search",
           "type": "command",
           "command": "quickMenuBuilder.openQuickMenu",
           "args": "Help Search in editor Menu",
@@ -1180,23 +1239,23 @@
   ],
   "quickMenuBuilder.menus": [
     {
-      "label": "Help editor Menu",
+      "label": "Help editor Menu", //h-1
       "items": [
         {
           "name": "resize",
           "description": "<C-h> or <C-j> or <C-k> or <C-l>",
           "command": ""
         },
-        {
-          "name": "<leader>",
-          "description": "space",
-          "command": ""
-        },
-        {
-          "name": "<leader><leader><leader>",
-          "description": "; or space+space+space",
-          "command": ""
-        },
+        // {
+        //   "name": "<leader>",
+        //   "description": "space",
+        //   "command": ""
+        // },
+        // {
+        //   "name": "<leader><leader><leader>",
+        //   "description": "; or space+space+space",
+        //   "command": ""
+        // },
         {
           "name": "Insert mode",
           "description": "shift+down",
@@ -1330,7 +1389,7 @@
         {
           "name": "Clean Screen",
           "description": "<leader>q",
-          "command": ""
+          "command": "",
         },
         {
           "name": "Close all tabs",
@@ -1344,7 +1403,7 @@
         },
         {
           "name": "Save file",
-          "description": "<leader><leader><leader>l",
+          "description": "<leader><leader><leader>'",
           "command": ""
         },
         {
@@ -1356,6 +1415,16 @@
           "name": "Unfold",
           "description": "<leader><leader><leader>]",
           "command": "editor.unfold"
+        },
+        {
+          "name": "Expand selection",
+          "description": "shift+ctrl+right",
+          "command": ""
+        },
+        {
+          "name": "Shrink selection",
+          "description": "shift+ctrl+left",
+          "command": ""
         },
         {
           "name": "Delete highlights",
@@ -1373,19 +1442,14 @@
           "command": "editor.action.jumpToBracket"
         },
         {
-          "name": "Go to bracket",
-          "description": "' or \"",
-          "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
-        },
-        {
-          "name": "Replace on workspace",
-          "description": "<leader>r",
-          "command": "workbench.action.replaceInFiles",
+          "name": "Go to line",
+          "description": "<leader><leader><leader>l",
+          "command": "workbench.action.gotoLine"
         },
       ]
     },
     {
-      "label": "Help Explorer Menu", // EXPLORER
+      "label": "Help Explorer Menu", //h-2
       "items": [
         {
           "name": "open file or to expand folder",
@@ -1513,6 +1577,11 @@
           "command": "search.action.focusFilesToInclude",
         },
         {
+          "name": "Focus to search box",
+          "description": "alt+f",
+          "command": "search.action.focusQueryEditorWidget",
+        },
+        {
           "name": "Focus to Exclude",
           "description": "shift+alt+e",
           "command": "search.action.focusFilesToExclude",
@@ -1521,11 +1590,6 @@
           "name": "Return origin",
           "description": "alt+r",
           "command": "rerunSearchEditorSearch",
-        },
-        {
-          "name": "Focus to search box",
-          "description": "alt+f",
-          "command": "search.action.focusQueryEditorWidget",
         },
         {
           "name": "Reveal Definition",
@@ -1548,7 +1612,7 @@
       "label": "Help Search Menu", // SEARCH
       "items": [
         {
-          "name": "Move up-down in box",
+          "name": "Move up-down to box",
           "description": "Command+up or Command+down",
           "command": "",
         },
@@ -1559,7 +1623,7 @@
         },
         {
           "name": "Replace mode",
-          "description": "shift+alt+r",
+          "description": "alt+r",
           "command": "workbench.action.replaceInFiles",
         },
         {
@@ -1593,8 +1657,8 @@
           "command": "search.action.clearSearchResults",
         },
         {
-          "name": "Refresh",
-          "description": "alt+r",
+          "name": "Focus to search box",
+          "description": "alt+f",
           "command": "search.action.refreshSearchResults",
         },
         {
@@ -1610,7 +1674,6 @@
   "inlineFold.after": "+",
   "inlineFold.unfoldedOpacity": 0.6,
   "tailwind-fold.autoFold": true,
-  "window.zoomLevel": -1,
   "vim.matchpairs": "(:),{:},[:],\":\"",
   "vim.shell": "~/tmp",
   "editor.stickyScroll.enabled": true,
@@ -1620,7 +1683,12 @@
   "vim.foldfix": false,
   "editor.autoClosingBrackets": "always",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "workbench.activityBar.visible": false,
   "apc.menubar.compact": true,
-  "editor.minimap.enabled": false
+  "workbench.layoutControl.enabled": false,
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": -1,
+  
 }

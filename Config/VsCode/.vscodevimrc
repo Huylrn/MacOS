@@ -5,7 +5,7 @@ map ; <leader><leader><leader>
 ":nohlsearch
 nnoremap <leader>h :nohl<CR>
 
-"tab move
+"tab next and previous
 nnoremap , gT
 nnoremap . gt
 
@@ -16,19 +16,21 @@ nnoremap j jzz
 nnoremap k kzz
 nnoremap H ^
 nnoremap L $
+
+"go to bracket 
 nnoremap " V%
 vnoremap ' %V
 
-"b and n (b and e)
+"m=e
 map m e
 map M E
 
-" 
+"begin and end 
 nnoremap gj Gzz
 nnoremap gk ggzz
 
 "save
-nnoremap <leader><leader><leader>l :w<CR>
+" nnoremap <leader><leader><leader>l :w<CR>
 
 "quit
 nnoremap <leader><leader><leader>q :q<CR>
@@ -42,15 +44,13 @@ nnoremap <right> <nop>
 "redo
 nnoremap U <C-r>
 
-" quick Command
+"quick Command
 inoremap <C-l> <C-o>:
 
 "ESC
-inoremap jk <ESC>
+inoremap jk <ESC>:w<CR>
 
-
-"move cursor on windows
-
+  "move cursor on windows"
 "right
 nnoremap \] <C-w>l
 "left
@@ -59,7 +59,7 @@ nnoremap \[ <C-w>h
 nnoremap \j <C-w>j
 "up
 nnoremap \k <C-w>k
-
+  "end"
 
 "move
 nnoremap | <C-w><C-w>
@@ -81,6 +81,8 @@ vnoremap i A
 vnoremap g gc
 vnoremap / <ESC>/
 vnoremap <ESC> <ESC><ESC>
+
+"Duplicate
 vnoremap o ykpgv
 
 "Indent line
@@ -94,8 +96,7 @@ nnoremap < <<
 "search
 nnoremap <leader>s #
 
-"quick 
+"quick mode
 inoremap <C-v> <ESC>V
 nnoremap <C-v> <ESC>V
 vnoremap <C-i> <ESC>i
-nnoremap ? BvEyy?

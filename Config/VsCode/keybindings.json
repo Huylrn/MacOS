@@ -15,7 +15,7 @@
 // s14 - Change ctrl+/ -> alt+/ 
 // s15 - Vim.remap
 // s16 - Change ctrl+p -> alt+p
-// s17 - Resize panel
+// s17 - Panel
 // s18 - Quick menu builder
 // s19 - Search
 // s - Disable keybindings
@@ -118,16 +118,6 @@
     //e3-------------------------
     //=============================================================================================
     // VIM - KEYMAPPS
-    {
-        "key": "k",
-        "command": "cursorUp",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    },
-    {
-        "key": "j",
-        "command": "cursorDown",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
-    },
     //s4-----------------------------
     // =====Move tab begin====== //
     {
@@ -637,24 +627,44 @@
     },
     //e16-----------------------------------------------------
     //s17--------------------------
-    // ===== Resize Panel ===== //
+    // ===== Panel ===== //
     {
-        "key": "ctrl+j",
+        "key": "alt+t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active && panelFocus"
+    },
+    {
+        "key": "alt+d",
+        "command": "workbench.debug.action.toggleRepl",
+        "when": "workbench.panel.repl.view.active && panelFocus"
+    },
+    {
+        "key": "alt+o",
+        "command": "workbench.action.output.toggleOutput",
+        "when": "workbench.panel.output.active && panelFocus"
+    },
+    {
+        "key": "alt+p",
+        "command": "~remote.forwardedPortsContainer",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+j", // resize
         "command": "workbench.action.terminal.resizePaneDown",
         "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+k", // resize
         "command": "workbench.action.terminal.resizePaneUp",
         "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+h",
+        "key": "ctrl+h", // resize
         "command": "workbench.action.terminal.resizePaneLeft",
         "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+l",
+        "key": "ctrl+l", // resize
         "command": "workbench.action.terminal.resizePaneRight",
         "when": "vim.active && terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
@@ -683,7 +693,7 @@
         "key": "shift+alt+/",
         "command": "quickMenuBuilder.openQuickMenu",
         "args": "Help editor Menu",
-        "when": "editorTextFocus && !filesExplorerFocus && !inDebugMode"
+        "when": "editorTextFocus && !filesExplorerFocus && !inDebugMode && !isInDiffEditor"
     },
     {
         "key": "shift+alt+/",
@@ -701,7 +711,7 @@
     // s19------------------
     // ==== Search ==== //
     {
-        "key": "shift+alt+r",
+        "key": "alt+r",
         "command": "workbench.action.replaceInFiles",
         "when": "searchViewletVisible && !findWidgetVisible && searchViewletFocus"
     },
@@ -736,7 +746,7 @@
         "when": "searchViewletVisible && !findWidgetVisible && searchViewletFocus"
     },
     {
-        "key": "alt+r",
+        "key": "alt+f",
         "command": "search.action.refreshSearchResults",
         "when": "searchViewletVisible && !findWidgetVisible && searchViewletFocus"
     },
@@ -781,6 +791,36 @@
         "when": "inSearchEditor"
     },
     //e19---------------------------------------------------------------
+    //s20--------------------
+    // ==== Terminal ==== //
+    {
+        "key": "alt+w", // kill 
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+    },
+    {
+        "key": "cmd+w",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.closeActiveEditor",
+                "workbench.action.toggleZenMode",
+            ],
+        },
+        "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+    },
+    {
+        "key": "alt+space", // open to editor
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.terminal.moveToEditor",
+                "workbench.action.terminal.moveToEditor",
+                "workbench.action.toggleZenMode",
+            ],
+        },
+        "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled"
+    },
     //e--------------------------------
     //s-----------------------
     {
@@ -817,4 +857,39 @@
         "key": "ctrl+cmd+k",
         "command": "editor.action.goToTypeDefinition"
     },
+    {
+        "key": "ctrl+shift+`",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    // {
+    //     "key": "ctrl+alt+b",
+    //     "command": "toggle",
+    //     "when": "editorTextFocus",
+    //     "args": {
+    //         "id": "minimap",
+    //         "value": [
+    //             {
+    //                 "vim.foldfix": true,
+    //             },
+    //             {
+    //                 "vim.foldfix": false,
+    //             }
+    //         ]
+    //     }
+    // },
+    // {
+    //     "key": "alt+s",
+    //     "command": "whichkey.show",
+    //     "args": {
+    //         "commands": [
+    //             "whichkey.show",
+    //             {
+    //                 "command": "whichkey.triggerKey",
+    //                 "args":"t.r",
+    //                 "when": "whichkeyVisible"
+
+    //             },
+    //         ]
+    //     }
+    // }
 ]
