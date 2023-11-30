@@ -74,6 +74,7 @@
     //   "command":"workbench.action.gotoLine",
     // },
   ],
+  // --VisualVim
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
@@ -109,7 +110,7 @@
       ]
     }
   ],
-  //Start
+  // --NormalVim
   "vim.normalModeKeyBindings": [
     // {
     //   "before": [
@@ -424,6 +425,14 @@
         // "y"
       ],
     },
+    {
+      "before": [
+        "?"
+      ],
+      "commands": [
+        "fuzzySearch.activeTextEditor"
+      ]
+    },
   ],
   //e------------------------------------- 
   //s--------------------- 
@@ -522,9 +531,9 @@
       "editorWarning.border": "#eaff00",
       "editorWarning.foreground": "#ff000000"
     },
-    "statusBar.background": "#005f87",
-    "statusBar.noFolderBackground": "#005f87",
-    "statusBar.debuggingBackground": "#005f87",
+    "statusBar.background": "#1F1B2C",
+    "statusBar.noFolderBackground": "#1F1B2C",
+    "statusBar.debuggingBackground": "#1F1B2C",
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   },
@@ -1547,7 +1556,7 @@
       ]
     }
   ],
-  // --config files language
+  // --configs files 
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -1620,18 +1629,19 @@
   "editor.guides.bracketPairs": true,
   "editor.suggest.snippetsPreventQuickSuggestions": true,
   "editor.suggest.preview": true,
-  "editor.autoClosingQuotes": "languageDefined",
   "editor.scrollbar.horizontalScrollbarSize": 4,
   "editor.suggest.showStatusBar": true,
   "editor.scrollbar.verticalScrollbarSize": 10,
   "editor.stickyScroll.enabled": true,
-  "editor.autoClosingBrackets": "always",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "on",
     "strings": "on",
   },
+  // --autoClosing
+  "editor.autoClosingQuotes": "languageDefined",
+  "editor.autoClosingBrackets": "languageDefined",
   // --Mouse
   "editor.mouseWheelScrollSensitivity": 1,
   // --Preview MarkDown
@@ -1669,6 +1679,7 @@
   // --zen mode
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
+  "zenMode.showTabs": "none",
   // --window
   "window.zoomLevel": -1,
   "window.doubleClickIconToClose": true,
