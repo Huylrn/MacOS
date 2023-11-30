@@ -858,9 +858,20 @@
         "command": "editor.action.goToTypeDefinition"
     },
     {
-        "key": "ctrl+shift+`",
-        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+        "key": "ctrl+cmd+b", // open link
+        "command": "editor.action.openLink"
     },
+    {
+        "key": "ctrl+cmd+n",
+        "command": "custom-status.edit",
+        "args":{
+            "type":"hllo", 
+        }
+    },
+    {
+        "key": "ctrl+cmd+m",
+        "command": "betterStatusBar.refreshButtons"
+    }
     // {
     //     "key": "ctrl+alt+b",
     //     "command": "toggle",
@@ -887,7 +898,6 @@
     //                 "command": "whichkey.triggerKey",
     //                 "args":"t.r",
     //                 "when": "whichkeyVisible"
-
     //             },
     //         ]
     //     }

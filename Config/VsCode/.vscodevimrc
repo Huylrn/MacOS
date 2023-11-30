@@ -79,7 +79,7 @@ vnoremap q <ESC>
 vnoremap K 5k
 vnoremap i A
 vnoremap g gc
-vnoremap / <ESC>/
+vnoremap / <ESC>?
 vnoremap <ESC> <ESC><ESC>
 
 "Duplicate
@@ -95,6 +95,7 @@ nnoremap < <<
 
 "search
 nnoremap <leader>s #
+nnoremap ? /
 
 "quick mode
 inoremap <C-v> <ESC>V

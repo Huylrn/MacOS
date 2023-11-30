@@ -1,46 +1,49 @@
 {
-  // font size
+  // --font size
   "editor.fontSize": 19.5,
   "terminal.integrated.fontSize": 21,
   "debug.console.fontSize": 14,
-  // Font
+  // --Font
   "editor.fontLigatures": false,
   "editor.fontFamily": "Anonymous Pro, Hack Nerd Font, monospace",
-  // "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace, Hack Nerd Font",
-  //tab key
+  // --tab key
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
-  // code runner
+  // --code runner
   "code-runner.saveFileBeforeRun": true,
   "code-runner.clearPreviousOutput": true,
   "code-runner.executorMapByGlob": {
     "code-runner.executorMapByGlob": {},
   },
-  // live server
+  // --live server
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
-  // Always keep the cursor in the center of the screen
+  // --Terminal
+  "terminal.integrated.tabs.defaultIcon": "terminal-cmd",
+  "terminal.explorerKind": "external",
+  // --debug
+  "debug.terminal.clearBeforeReusing": true,
+  // --Always keep the cursor in the center of the screen
   "editor.cursorSurroundingLines": 100,
-  // 
+  // --explorer
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  // icon 
+  // --icon 
   "workbench.iconTheme": "material-icon-theme",
-  // auto save
+  // --auto save
   "files.autoSave": "onFocusChange",
-  "vim.incsearch": true,
-  // Copy
+  // --Copy | vim
   "vim.useSystemClipboard": true,
   "vim.overrideCopy": true,
   // "vim.sneakUseIgnorecaseAndSmartcase": true,
   "vim.hlsearch": true,
   "vim.visualstar": true,
   "vim.startInInsertMode": false,
-  // Cursor
+  // --Cursor | vim
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
   "vim.cursorStylePerMode.visual": "block",
-  // Status Bar color
+  // --status bar | vim
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.visual": "#0E4E4E",
   "vim.statusBarColors.normal": "#1F1B2C",
@@ -50,11 +53,18 @@
     "#eaff003f",
     "#ff0000"
   ],
+  "vim.incsearch": true,
   "vim.easymotionDimBackground": false,
-  "vim.smartRelativeLine": true,
   "vim.targets.smartQuotes.breakThroughLines": false,
   "vim.targets.smartQuotes.enable": false,
   "vim.targets.smartQuotes.aIncludesSurroundingSpaces": false,
+  "vim.vimrc.path": "~/.vscodevimrc",
+  "vim.vimrc.enable": true,
+  "vim.highlightedyank.enable": true,
+  "vim.leader": "<space>",
+  "vim.shell": "~/tmp",
+  "vim.smartRelativeLine": true,
+  "vim.foldfix": false,
   "vim.startofline": false,
   "whichkey.bindingOverrides": [
     // {
@@ -80,18 +90,6 @@
       ],
       "commands": [
         "vspacecode.space"
-      ]
-    },
-    {
-      "before": [
-        ","
-      ],
-      "commands": [
-        "vspacecode.space",
-        {
-          "command": "whichkey.triggerKey",
-          "args": "m"
-        }
       ]
     },
     {
@@ -427,9 +425,10 @@
       ],
     },
   ],
-  //e--------------------------------------- 
-  //s----------------------- 
+  //e------------------------------------- 
+  //s--------------------- 
   // =====Custom UI===== //
+  "workbench.colorTheme": "Omni",
   "workbench.colorCustomizations": {
     "[Transparent Color Theme]": {
       "widget.shadow": "#ff333395",
@@ -511,7 +510,7 @@
       "listFilterWidget.shadow": "#ff0000",
       "inlineChat.shadow": "#eaff003f",
       "statusBar.foreground": "#ffffff",
-      "statusBarItem.remoteBackground": "#1F1B2C",
+      "statusBarItem.remoteBackground": "#5f4c9a",
       "minimap.infoHighlight": "#ffffff",
       "minimapSlider.background": "#fcfafa41",
       "editorBracketHighlight.foreground2": "#ff9d34",
@@ -523,15 +522,14 @@
       "editorWarning.border": "#eaff00",
       "editorWarning.foreground": "#ff000000"
     },
-    "statusBar.background": "#1F1B2C",
-    "statusBar.noFolderBackground": "#1F1B2C",
-    "statusBar.debuggingBackground": "#1F1B2C",
-    "statusBar.foreground": "#ff0000",
-    "statusBar.debuggingForeground": "#ff0000",
-    "editorCursor.foreground": "#673AB7"
+    "statusBar.background": "#005f87",
+    "statusBar.noFolderBackground": "#005f87",
+    "statusBar.debuggingBackground": "#005f87",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.debuggingForeground": "#ffffff"
   },
-  //e-------------------------------------------
-  //s----------------------------------
+  //e-----------------------------------------
+  //s--------------------------------
   // =====UI===== //
   "editor.tokenColorCustomizations": {
     //start 
@@ -703,123 +701,7 @@
       ]
     }
   },
-  //e----------------------------------------------------- 
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  // Highlight Matching Tag
-  "highlight-matching-tag.styles": {
-    "opening": {
-      "name": {
-        "underline": "yellow"
-      }
-    }
-  },
-  // MarkDown
-  "files.associations": {
-    "*.md": "markdown",
-    ".vscodevimrc": "Vimscript",
-    "*.scpt": "applescript",
-    "Color_shell": "shellscript"
-  },
-  // "[markdown]": {
-  //   "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  // },
-  // Preview MarkDown
-  "markdown-preview-enhanced.previewTheme": "night.css",
-  "markdown-preview-enhanced.codeBlockTheme": "one-dark.css",
-  //Spell
-  "cSpell.language": "en,vi",
-  "prettier.bracketSameLine": true,
-  "window.doubleClickIconToClose": true,
-  "update.mode": "manual",
-  // Mouse
-  "editor.mouseWheelScrollSensitivity": 1,
-  "apc.statusBar": {
-    "fontSize": 14,
-    "height": 25,
-  },
-  "workbench.colorTheme": "Omni",
-  "editor.formatOnSave": false,
-  "apc.imports": [
-    "file:///Users/huuynguyen/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
-  ],
-  "apc.electron": {
-    "transparent": false,
-    "opacity": 0.85,
-    "backgroundColor": "#00000000",
-    "vibrancy": "ultra-dark",
-    "frame": false
-  },
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "vim.vimrc.path": "~/.vscodevimrc",
-  "vim.vimrc.enable": true,
-  "vim.highlightedyank.enable": true,
-  "vim.leader": "<space>",
-  "editor.accessibilitySupport": "off",
-  "editor.renderWhitespace": "all",
-  "editor.minimap.showSlider": "always",
-  "terminal.integrated.tabs.defaultIcon": "terminal-cmd",
-  "workbench.editor.splitInGroupLayout": "vertical",
-  "terminal.explorerKind": "external",
-  "debug.terminal.clearBeforeReusing": true,
-  "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "workbench.editorAssociations": {
-    "*.js": "default"
-  },
-  "cSpell.customDictionaries": {
-    "custom-dictionary-user": {
-      "name": "custom-dictionary-user",
-      "path": "~/.cspell/custom-dictionary-user.txt",
-      "addWords": true,
-      "scope": "user"
-    }
-  },
-  "cSpell.enableFiletypes": [
-    "Vimscript",
-    "lua",
-    "shellscript",
-    "vimrc"
-  ],
-  "editor.guides.bracketPairs": true,
-  "editor.suggest.snippetsPreventQuickSuggestions": true,
-  "editor.suggest.preview": true,
-  "editor.quickSuggestions": {
-    "other": "on",
-    "comments": "on",
-    "strings": "on",
-  },
-  "markdown-preview-enhanced.revealjsTheme": "moon.css",
-  "markdown-preview-enhanced.enableHTML5Embed": true,
-  "markdown-preview-enhanced.enableExtendedTableSyntax": true,
-  "markdown-preview-enhanced.enableCriticMarkupSyntax": true,
-  "markdown-preview-enhanced.enableTypographer": true,
-  "markdown-preview-enhanced.previewColorScheme": "systemColorScheme",
-  "markdown.extension.print.theme": "dark",
-  "markdown.extension.syntax.plainTheme": true,
-  "markdown.extension.toc.slugifyMode": "vscode",
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "terminal.integrated.shellIntegration.suggestEnabled": true,
-  "git.openRepositoryInParentFolders": "always",
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "workbench.editor.pinnedTabsOnSeparateRow": true,
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
-  "editor.autoClosingQuotes": "languageDefined",
-  "editor.scrollbar.horizontalScrollbarSize": 4,
-  "editor.suggest.showStatusBar": true,
-  "editor.scrollbar.verticalScrollbarSize": 10,
-  "window.newWindowDimensions": "maximized",
-  "[shellscript]": {
-    "files.eol": "\n",
-    "editor.autoClosingQuotes": "always"
-  },
+  //e--------------------------------------------------- 
   "whichkey.bindings": [ //menu-1
     {
       "key": " ",
@@ -1148,18 +1030,14 @@
       "key": "T",
       "name": "Toggle foldfix(vim)",
       "type": "command",
-      "command": "toggle",
-      "args": {
-        "id": "fold fix",
-        "value": [
-          {
-            "vim.foldfix": true,
-          },
-          {
-            "vim.foldfix": false,
-          }
-        ]
-      }
+      "command": "settings.cycle.foldfix",
+    },
+    {
+      "key": "oi",
+      "name": "test",
+      "type": "command",
+      // "command": "formattingToggle.toggleFormat",
+      "command": "settings.cycle.test",
     },
     // {
     //   "key": "z",
@@ -1669,26 +1547,180 @@
       ]
     }
   ],
-  // "vim.sneak": true,
-  // "editor.lineNumbers": "on",
-  "inlineFold.after": "+",
-  "inlineFold.unfoldedOpacity": 0.6,
-  "tailwind-fold.autoFold": true,
-  "vim.matchpairs": "(:),{:},[:],\":\"",
-  "vim.shell": "~/tmp",
-  "editor.stickyScroll.enabled": true,
+  // --config files language
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.autoClosingQuotes": "always"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "vim.foldfix": false,
+  // --Highlight Matching Tag
+  "highlight-matching-tag.styles": {
+    "opening": {
+      "name": {
+        "underline": "yellow"
+      }
+    }
+  },
+  "files.associations": {
+    "*.md": "markdown",
+    ".vscodevimrc": "Vimscript",
+    "*.scpt": "applescript",
+    "Color_shell": "shellscript"
+  },
+  // "[markdown]": {
+  //   "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  // },
+  // --apc
+  "apc.menubar.compact": true,
+  "apc.statusBar": {
+    "fontSize": 14,
+    "height": 25,
+  },
+  "apc.imports": [
+    "file:///Users/huuynguyen/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
+  ],
+  "apc.electron": {
+    "transparent": false,
+    "opacity": 0.85,
+    "backgroundColor": "#00000000",
+    "vibrancy": "ultra-dark",
+    "frame": false
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  // --cSpell
+  "cSpell.language": "en,vi",
+  "cSpell.customDictionaries": {
+    "custom-dictionary-user": {
+      "name": "custom-dictionary-user",
+      "path": "~/.cspell/custom-dictionary-user.txt",
+      "addWords": true,
+      "scope": "user"
+    }
+  },
+  "cSpell.enableFiletypes": [
+    "Vimscript",
+    "lua",
+    "shellscript",
+    "vimrc"
+  ],
+  // --editor
+  "editor.accessibilitySupport": "off",
+  "editor.renderWhitespace": "all",
+  "editor.minimap.showSlider": "always",
+  "editor.guides.bracketPairs": true,
+  "editor.suggest.snippetsPreventQuickSuggestions": true,
+  "editor.suggest.preview": true,
+  "editor.autoClosingQuotes": "languageDefined",
+  "editor.scrollbar.horizontalScrollbarSize": 4,
+  "editor.suggest.showStatusBar": true,
+  "editor.scrollbar.verticalScrollbarSize": 10,
+  "editor.stickyScroll.enabled": true,
   "editor.autoClosingBrackets": "always",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "apc.menubar.compact": true,
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "on",
+    "strings": "on",
+  },
+  // --Mouse
+  "editor.mouseWheelScrollSensitivity": 1,
+  // --Preview MarkDown
+  "markdown-preview-enhanced.previewTheme": "night.css",
+  "markdown-preview-enhanced.codeBlockTheme": "one-dark.css",
+  "markdown-preview-enhanced.revealjsTheme": "moon.css",
+  "markdown-preview-enhanced.enableHTML5Embed": true,
+  "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+  "markdown-preview-enhanced.enableCriticMarkupSyntax": true,
+  "markdown-preview-enhanced.enableTypographer": true,
+  "markdown-preview-enhanced.previewColorScheme": "systemColorScheme",
+  // --Markdown
+  "markdown.extension.print.theme": "dark",
+  "markdown.extension.syntax.plainTheme": true,
+  "markdown.extension.toc.slugifyMode": "vscode",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.shellIntegration.suggestEnabled": true,
+  "git.openRepositoryInParentFolders": "always",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
   "workbench.layoutControl.enabled": false,
+  "workbench.editorAssociations": {
+    "*.js": "default"
+  },
+  "inlineFold.after": "+",
+  "inlineFold.unfoldedOpacity": 0.6,
+  "tailwind-fold.autoFold": true,
+  "prettier.bracketSameLine": true,
+  "update.mode": "manual",
+  // --zen mode
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.minimap.enabled": false,
+  // --window
   "window.zoomLevel": -1,
-  
+  "window.doubleClickIconToClose": true,
+  "window.newWindowDimensions": "maximized",
+  // --Better Status Bar
+  "betterStatusBar.defaultColor": "statusBar.foreground",
+  "betterStatusBar.configurationFile": "true",
+  "betterStatusBar.loadNpmCommands": false,
+  // --dimmer
+  "dimmer.enabled": true,
+  "dimmer.when": "selection",
+  // --toggle settings 
+  "settings.cycle.warnOnWorkspaceSettingsCollisions": true,
+  "settings.cycle.logLevel": "info",
+  "settings.cycle": [
+    {
+      "id": "foldfix",
+      "overrideWorkspaceSettings": false,
+      "values": [
+        {
+          "betterStatusBar.commands": [
+            {
+              "id": "0",
+              "label": "Fold Fix",
+              "command": "",
+              "color": "yellow"
+            }
+          ],
+          "vim.foldfix": true
+        },
+        {
+          "betterStatusBar.commands": [
+            {
+              "id": "0",
+              "label": "",
+              "command": "",
+              "color": ""
+            }
+          ],
+          "vim.foldfix": false
+        }
+      ]
+    },
+  ],
+  // --Indefinite
+  "betterStatusBar.commands": [
+    {
+      "id": "0",
+      "label": "",
+      "command": "",
+      "color": ""
+    }
+  ],
+  "editor.minimap.enabled": false,
 }
