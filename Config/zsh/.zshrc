@@ -107,20 +107,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.terminal.zsh ]] || source ~/.p10k.terminal.zsh
-
 # My resource
 source $HOME/.config/zsh/source.zsh
-
 
 # Powerlevel 10k
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.terminal.zsh ]] || source ~/.p10k.terminal.zsh
+
 if [ $TERM_PROGRAM != "Apple_Terminal" ]; then
 
-  source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-  
+  # source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 fi
