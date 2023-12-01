@@ -436,6 +436,14 @@
     },
     {
       "before": [
+        "leader","o"
+      ],
+      "commands": [
+        "editor.action.openLink",
+      ]
+    },
+    {
+      "before": [
         "f"
       ],
       "commands": [
@@ -727,15 +735,35 @@
       "type": "command",
       "command": "whichkey.searchBindings"
     },
-    // {
-    //   "key": "\t",
-    //   "name": "Last editor",
-    //   "type": "commands",
-    //   "commands": [
-    //     "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
-    //     "list.select"
-    //   ]
-    // },
+    {
+      "key": "\t",
+      "name": "Last editor",
+      "type": "commands",
+      "commands": [
+        "workbench.action.navigateToLastEditLocation"
+        // "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        // "list.select"
+      ]
+    },
+    {
+      "key": "F",
+      "name": "fzf search",
+      "icon": "search",
+      "command": "extension.multiCommand.execute",
+      "args": {
+        "sequence": [
+          {
+            "command": "command-runner.run",
+            "args": {
+              "command": "fzf-p | xargs -r code"
+            },
+          },
+          {
+            "command": "workbench.action.terminal.moveToEditor",
+          },
+        ]
+      }
+    },
     {
       "key": "/",
       "name": "Search in project",
@@ -1125,7 +1153,7 @@
       "items": [
         {
           "name": "resize",
-          "description": "<C-h> or <C-j> or <C-k> or <C-l>",
+          "description": "» <C-h> or <C-j> or <C-k> or <C-l> «",
           "command": ""
         },
         // {
@@ -1261,6 +1289,16 @@
         {
           "name": "Move focus to left",
           "description": "<C-[>",
+          "command": "",
+        },
+        {
+          "name": "Move tab to right",
+          "description": "Option+.",
+          "command": "",
+        },
+        {
+          "name": "Move tab to left",
+          "description": "Option+,",
           "command": "",
         },
         {
@@ -1469,14 +1507,14 @@
           "command": "search.action.focusFilesToInclude",
         },
         {
-          "name": "Focus to search box",
-          "description": "alt+f",
-          "command": "search.action.focusQueryEditorWidget",
-        },
-        {
           "name": "Focus to Exclude",
           "description": "shift+alt+e",
           "command": "search.action.focusFilesToExclude",
+        },
+        {
+          "name": "Focus to search box",
+          "description": "alt+f",
+          "command": "search.action.focusQueryEditorWidget",
         },
         {
           "name": "Return origin",
@@ -1723,6 +1761,7 @@
               "id": "0",
               "label": "Fold Fix",
               "command": "",
+              "alignment": 2,
               "color": "yellow"
             }
           ],
@@ -1732,7 +1771,7 @@
           "betterStatusBar.commands": [
             {
               "id": "0",
-              "label": "",
+              "label": "",
               "command": "",
               "color": ""
             }
@@ -1773,5 +1812,6 @@
   "editor.lineNumbers": "on",
   "workbench.statusBar.visible": true,
   "workbench.editor.showTabs": "multiple",
+  "security.workspace.trust.untrustedFiles": "open",
   "editor.minimap.enabled": false,
 }
