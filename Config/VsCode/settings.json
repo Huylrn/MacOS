@@ -18,7 +18,7 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
   // --Terminal
-  "terminal.integrated.fontSize": 21,
+  "terminal.integrated.fontSize": 25,
   "terminal.integrated.tabs.defaultIcon": "terminal-cmd",
   "terminal.explorerKind": "external",
   "terminal.integrated.tabs.title": "",
@@ -52,7 +52,6 @@
   "vim.statusBarColors.insert": "#500128",
   "vim.statusBarColors.commandlineinprogress": [
     "#eaff003f",
-    "#ff0000"
   ],
   "vim.incsearch": true,
   "vim.easymotionDimBackground": false,
@@ -436,7 +435,8 @@
     },
     {
       "before": [
-        "leader","o"
+        "leader",
+        "o"
       ],
       "commands": [
         "editor.action.openLink",
@@ -1257,7 +1257,7 @@
           "command": "workbench.action.showAllEditors",
         },
         {
-          "name": "Show Definition Preview hover",
+          "name": "Show Definition and focus to it",
           "description": "<leader><leader><leader>.",
           "command": "editor.action.showDefinitionPreviewHover"
         },
@@ -1429,6 +1429,11 @@
         {
           "name": "Paste file or folder",
           "description": "C",
+          "command": "filesExplorer.paste"
+        },
+        {
+          "name": "Selection",
+          "description": "Shift+Command+Enter",
           "command": "filesExplorer.paste"
         },
       ]
@@ -1645,7 +1650,7 @@
   ],
   "apc.electron": {
     "transparent": false,
-    "opacity": 0.85,
+    "opacity": 0.90,
     "backgroundColor": "#00000000",
     "vibrancy": "ultra-dark",
     "frame": false
@@ -1730,13 +1735,12 @@
   "inlineFold.unfoldedOpacity": 0.6,
   "tailwind-fold.autoFold": true,
   "prettier.bracketSameLine": true,
-  "update.mode": "manual",
+  "update.mode": "default",
   // --zen mode
   "zenMode.centerLayout": true,
   "zenMode.fullScreen": false,
   "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": true,
-  // --window
   "window.zoomLevel": -1,
   "window.doubleClickIconToClose": true,
   "window.newWindowDimensions": "maximized",
@@ -1808,10 +1812,10 @@
       "color": ""
     }
   ],
-  "window.commandCenter": true,
-  "editor.lineNumbers": "on",
-  "workbench.statusBar.visible": true,
-  "workbench.editor.showTabs": "multiple",
+  "window.commandCenter": false,
+  "editor.lineNumbers": "off",
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showTabs": "none",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.minimap.enabled": false,
 }
