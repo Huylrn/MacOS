@@ -48,6 +48,7 @@
   "vim.cursorStylePerMode.insert": "line",
   "vim.cursorStylePerMode.normal": "block",
   "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.replace": "underline",
   // --status bar | vim
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.visual": "#0E4E4E",
@@ -62,13 +63,13 @@
   "vim.targets.smartQuotes.breakThroughLines": false,
   "vim.targets.smartQuotes.enable": false,
   "vim.targets.smartQuotes.aIncludesSurroundingSpaces": false,
-  "vim.vimrc.path": "~/.vscodevimrc",
+  "vim.vimrc.path": "$HOME/.config/vscode/.vscodevimrc",
   "vim.vimrc.enable": true,
   "vim.highlightedyank.enable": true,
   "vim.leader": "<space>",
-  "vim.shell": "~/tmp",
+  "vim.shell": "/bin/zsh",
   "vim.smartRelativeLine": true,
-  "vim.foldfix": false,
+  "vim.foldfix": true,
   "vim.startofline": false,
   "whichkey.bindingOverrides": [
     // {
@@ -89,14 +90,14 @@
         "workbench.action.findInFiles"
       ]
     },
-    {
-      "before": [
-        "<space>"
-      ],
-      "commands": [
-        "vspacecode.space"
-      ]
-    },
+    // {
+    //   "before": [
+    //     "<space>"
+    //   ],
+    //   "commands": [
+    //     "vspacecode.space"
+    //   ]
+    // },
     {
       "before": [
         ">"
@@ -846,6 +847,18 @@
       "type": "bindings",
       "bindings": [
         {
+          "key": "f",
+          "name": "Create folding range from selection",
+          "type": "command",
+          "command": "editor.createFoldingRangeFromSelection",
+        },
+        {
+          "key": "F",
+          "name": "Remove manual folding ranges",
+          "type": "command",
+          "command": "editor.removeManualFoldingRanges"
+        },
+        {
           "key": "w",
           "name": "Open active in new window",
           "type": "command",
@@ -966,6 +979,12 @@
       "name": "« UI »",
       "type": "bindings",
       "bindings": [
+        {
+          "key": "S",
+          "name": "Toggle status B",
+          "type": "command",
+          "command": "workbench.action.toggleStatusbarVisibility"
+        },
         {
           "key": "F",
           "name": "Toggle full screen",
@@ -1244,7 +1263,7 @@
           "command": "fuzzySearch.activeTextEditor"
         },
         {
-          "name": "Search quick in file",
+          "name": "Quick search in file",
           "description": "<leader>s",
           "command": ""
         },
@@ -1384,9 +1403,9 @@
           "command": "editor.action.jumpToBracket"
         },
         {
-          "name": "Go to line",
-          "description": "<leader><leader><leader>l",
-          "command": "workbench.action.gotoLine"
+          "name": "Surround plugin",
+          "description": "cs or ds",
+          "command": ""
         },
       ]
     },
@@ -1831,16 +1850,22 @@
   "betterStatusBar.commands": [
     {
       "id": "0",
-      "label": "",
+      "label": "Fold Fix",
       "command": "",
-      "color": ""
+      "alignment": 2,
+      "color": "yellow"
     }
   ],
+  "prettier.arrowParens": "always",
+  "prettier.configPath": "$HOME/.config/vscode/.prettier",
+  "editor.formatOnSave": true,
   "window.commandCenter": true,
-  "editor.lineNumbers": "on",
-  "workbench.statusBar.visible": true,
   "workbench.editor.showTabs": "multiple",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.minimap.enabled": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
+  "editor.stickyScroll.maxLineCount": 3,
+  "search.showLineNumbers": true,
+  "editor.inlineCompletionsAccessibilityVerbose": true,
+  "editor.lineNumbers": "on",
 }
