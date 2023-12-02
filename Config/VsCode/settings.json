@@ -22,6 +22,10 @@
   "terminal.integrated.tabs.defaultIcon": "terminal-cmd",
   "terminal.explorerKind": "external",
   "terminal.integrated.tabs.title": "",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.shellIntegration.suggestEnabled": true,
   // --debug
   "debug.terminal.clearBeforeReusing": true,
   // --Always keep the cursor in the center of the screen
@@ -659,8 +663,6 @@
             "fontStyle": "bold"
           }
         },
-        // Hello every
-        // OK olala
         {
           "scope": "comment",
           "settings": {
@@ -1149,7 +1151,7 @@
   ],
   "quickMenuBuilder.menus": [
     {
-      "label": "Help editor Menu", //h-1
+      "label": "Help editor Menu", // ==== HELP ====== //
       "items": [
         {
           "name": "resize",
@@ -1163,17 +1165,17 @@
         // },
         // {
         //   "name": "<leader><leader><leader>",
-        //   "description": "; or space+space+space",
+        //   "description": "; or space + space + space",
         //   "command": ""
         // },
         {
           "name": "Insert mode",
-          "description": "shift+down",
+          "description": "shift + down",
           "command": ""
         },
         {
           "name": "Visual mode",
-          "description": "shift+up",
+          "description": "shift + up",
           "command": ""
         },
         {
@@ -1238,7 +1240,7 @@
         },
         {
           "name": "Search in file",
-          "description": "shift+s",
+          "description": "shift + s",
           "command": "fuzzySearch.activeTextEditor"
         },
         {
@@ -1293,23 +1295,23 @@
         },
         {
           "name": "Move tab to right",
-          "description": "Option+.",
+          "description": "Option + .",
           "command": "",
         },
         {
           "name": "Move tab to left",
-          "description": "Option+,",
+          "description": "Option + ,",
           "command": "",
         },
         {
           "name": "Move focus to sticky scroll",
-          "description": "<leader>up or Option+tab",
+          "description": "<leader>up or Option + tab",
           "command": "editor.action.focusStickyScroll"
         },
         {
           "name": "Jump to function",
           "description": "<leader>f",
-          "command": "extension.vim_ctrl+]"
+          "command": "extension.vim_ctrl + ]"
         },
         {
           "name": "Recent files and projects",
@@ -1348,12 +1350,22 @@
         },
         {
           "name": "Expand selection",
-          "description": "shift+ctrl+right",
+          "description": "shift + ctrl + right or Option + l",
+          "command": ""
+        },
+        {
+          "name": "Expand selection ver3",
+          "description": "Shift + option + l",
           "command": ""
         },
         {
           "name": "Shrink selection",
-          "description": "shift+ctrl+left",
+          "description": "shift + ctrl + left or Option + h",
+          "command": ""
+        },
+        {
+          "name": "Shrink selection ver3",
+          "description": "Shift + option + h",
           "command": ""
         },
         {
@@ -1379,7 +1391,7 @@
       ]
     },
     {
-      "label": "Help Explorer Menu", //h-2
+      "label": "Help Explorer Menu", // ==== HELP ==== //
       "items": [
         {
           "name": "open file or to expand folder",
@@ -1485,6 +1497,11 @@
           "name": "Show all file content",
           "description": "F",
           "command": "diffEditor.showAllUnchangedRegions",
+        },
+        {
+          "name": "Toggle inline view",
+          "description": "Option+f",
+          "command": "toggle.diff.renderSideBySide",
         },
       ]
     },
@@ -1656,7 +1673,7 @@
     "frame": false
   },
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-nevoid": 1
   },
   // --cSpell
   "cSpell.language": "en,vi",
@@ -1714,12 +1731,7 @@
   "markdown.extension.print.theme": "dark",
   "markdown.extension.syntax.plainTheme": true,
   "markdown.extension.toc.slugifyMode": "vscode",
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "terminal.integrated.shellIntegration.suggestEnabled": true,
   "git.openRepositoryInParentFolders": "always",
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.editor.splitInGroupLayout": "vertical",
   "workbench.editor.pinnedTabsOnSeparateRow": true,
   "workbench.sideBar.location": "right",
@@ -1802,6 +1814,18 @@
         }
       ]
     },
+    {
+      "id": "ignoreWhiteSpace",
+      "overrideWorkspaceSettings": false,
+      "values": [
+        {
+          "diffEditor.ignoreTrimWhitespace": true,
+        },
+        {
+          "diffEditor.ignoreTrimWhitespace": false,
+        }
+      ]
+    }
   ],
   // --Indefinite
   "betterStatusBar.commands": [
@@ -1812,10 +1836,11 @@
       "color": ""
     }
   ],
-  "window.commandCenter": false,
-  "editor.lineNumbers": "off",
-  "workbench.statusBar.visible": false,
-  "workbench.editor.showTabs": "none",
+  "window.commandCenter": true,
+  "editor.lineNumbers": "on",
+  "workbench.statusBar.visible": true,
+  "workbench.editor.showTabs": "multiple",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.minimap.enabled": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
 }

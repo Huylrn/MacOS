@@ -74,6 +74,41 @@
 		"command": "editor.action.openLink",
 		"when": "editorTextFocus"
 	},
+	// --
+	{
+		"key": "alt+l", // expand selection
+		"command": "editor.action.smartSelect.expand",
+		"when": "vim.active && editorTextFocus"
+	},
+	{
+		"key": "alt+h", // shrink selection
+		"command": "editor.action.smartSelect.shrink",
+		"when": "vim.active && editorTextFocus"
+	},
+	{
+		"key": "shift+alt+l",
+		"command": "runCommands",
+		"args": {
+			"commands": [
+				"editor.action.smartSelect.expand",
+				"editor.action.smartSelect.expand",
+				"editor.action.smartSelect.expand",
+			]
+		},
+		"when": "vim.active && editorTextFocus"
+	},
+	{
+		"key": "shift+alt+h",
+		"command": "runCommands",
+		"args": {
+			"commands": [
+				"editor.action.smartSelect.shrink",
+				"editor.action.smartSelect.shrink",
+				"editor.action.smartSelect.shrink",
+			]
+		},
+		"when": "vim.active && editorTextFocus"
+	},
 	//e1----------------------------------------------
 	//s2--------------------------
 	// =====Replace word===== //
@@ -109,6 +144,7 @@
 		"command": "-editor.action.copyLinesUpAction",
 		"when": "editorTextFocus && !editorReadonly"
 	},
+	
 	//e2-----------------------------------------------
 	// 
 	{
@@ -271,6 +307,16 @@
 		"key": "left", // switch
 		"command": "diffEditor.switchSide",
 		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
+	},
+	{
+		"key": "alt+m",
+		"command": "settings.cycle.ignoreWhiteSpace",
+		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
+	},
+	{
+		"key": "alt+f",
+		"command": "toggle.diff.renderSideBySide",
+		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor",
 	},
 	//e7--------------------------------------------------------------- 
 	//s8-------------------------------
@@ -504,6 +550,11 @@
 		"key": "cmd+f",
 		"command": "-list.find",
 		"when": "listFocus && listSupportsFind"
+	},
+	{
+		"key": "shift+o",
+		"command": "list.select",
+		"when": "listFocus && !inputFocus"
 	},
 	//e13-----------------------------------
 	//s14--------------------------------
