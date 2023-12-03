@@ -67,7 +67,6 @@
 	"vim.vimrc.enable": true,
 	"vim.highlightedyank.enable": true,
 	"vim.leader": "<space>",
-	"vim.shell": "/bin/zsh",
 	"vim.smartRelativeLine": true,
 	"vim.foldfix": false,
 	"vim.startofline": false,
@@ -565,8 +564,6 @@
 			"editorGutter.commentGlyphForeground": "#00ff2a",
 			"editorGutter.foldingControlForeground": "#ff00fb",
 			"editorGutter.modifiedBackground": "#00ffe5",
-			"diffEditor.insertedTextBackground": "#ff0000",
-			"diffEditor.diagonalFill": "#ff0000",
 			"peekViewTitleDescription.foreground": "#ffffff",
 			"peekViewTitleLabel.foreground": "#a6ff00"
 		},
@@ -1558,6 +1555,24 @@
 					"description": "Option+f",
 					"command": "toggle.diff.renderSideBySide",
 				},
+				{
+					"name": "Git",
+					"description": "g",
+					"command": "",
+				}
+			]
+		},
+		{
+			"label": "Help git Menu", // DIFF
+			"items": [
+				{
+					"name": "Git revert at line",
+					"command": "git.revertSelectedRanges",
+				},
+				{
+					"name": "Git unrevert at line",
+					"command": "undo"
+				}
 			]
 		},
 		{
@@ -1676,6 +1691,70 @@
 			]
 		}
 	],
+	// --toggle settings 
+	"settings.cycle.warnOnWorkspaceSettingsCollisions": true,
+	"settings.cycle.logLevel": "info",
+	"settings.cycle": [
+		{
+			"id": "foldfix",
+			"overrideWorkspaceSettings": false,
+			"values": [
+				{
+					"betterStatusBar.commands": [
+						{
+							"id": "0",
+							"label": "Fold Fix",
+							"command": "",
+							"alignment": 2,
+							"color": "yellow"
+						}
+					],
+					"vim.foldfix": true
+				},
+				{
+					"betterStatusBar.commands": [
+						{
+							"id": "0",
+							"label": "",
+							"command": "",
+							"color": ""
+						}
+					],
+					"vim.foldfix": false
+				}
+			]
+		},
+		{
+			"id": "cleanmode",
+			"overrideWorkspaceSettings": false,
+			"values": [
+				{
+					"window.commandCenter": true,
+					"editor.lineNumbers": "on",
+					"workbench.statusBar.visible": true,
+					"workbench.editor.showTabs": "multiple",
+				},
+				{
+					"window.commandCenter": false,
+					"editor.lineNumbers": "off",
+					"workbench.statusBar.visible": false,
+					"workbench.editor.showTabs": "none",
+				}
+			]
+		},
+		{
+			"id": "ignoreWhiteSpace",
+			"overrideWorkspaceSettings": false,
+			"values": [
+				{
+					"diffEditor.ignoreTrimWhitespace": true,
+				},
+				{
+					"diffEditor.ignoreTrimWhitespace": false,
+				}
+			]
+		}
+	],
 	// --configs files 
 	"[html]": {
 		"editor.defaultFormatter": "vscode.html-language-features"
@@ -1731,7 +1810,7 @@
 	"cSpell.customDictionaries": {
 		"custom-dictionary-user": {
 			"name": "custom-dictionary-user",
-			"path": "~/.cspell/custom-dictionary-user.txt",
+			"path": "~/.config/vscode/.cspell/custom-dictionary-user.txt",
 			"addWords": true,
 			"scope": "user"
 		}
@@ -1804,69 +1883,12 @@
 	// --dimmer
 	"dimmer.enabled": true,
 	"dimmer.when": "selection",
-	// --toggle settings 
-	"settings.cycle.warnOnWorkspaceSettingsCollisions": true,
-	"settings.cycle.logLevel": "info",
-	"settings.cycle": [
-		{
-			"id": "foldfix",
-			"overrideWorkspaceSettings": false,
-			"values": [
-				{
-					"betterStatusBar.commands": [
-						{
-							"id": "0",
-							"label": "Fold Fix",
-							"command": "",
-							"alignment": 2,
-							"color": "yellow"
-						}
-					],
-					"vim.foldfix": true
-				},
-				{
-					"betterStatusBar.commands": [
-						{
-							"id": "0",
-							"label": "",
-							"command": "",
-							"color": ""
-						}
-					],
-					"vim.foldfix": false
-				}
-			]
-		},
-		{
-			"id": "cleanmode",
-			"overrideWorkspaceSettings": false,
-			"values": [
-				{
-					"window.commandCenter": true,
-					"editor.lineNumbers": "on",
-					"workbench.statusBar.visible": true,
-					"workbench.editor.showTabs": "multiple",
-				},
-				{
-					"window.commandCenter": false,
-					"editor.lineNumbers": "off",
-					"workbench.statusBar.visible": false,
-					"workbench.editor.showTabs": "none",
-				}
-			]
-		},
-		{
-			"id": "ignoreWhiteSpace",
-			"overrideWorkspaceSettings": false,
-			"values": [
-				{
-					"diffEditor.ignoreTrimWhitespace": true,
-				},
-				{
-					"diffEditor.ignoreTrimWhitespace": false,
-				}
-			]
-		}
+	// --errorLens
+	"errorLens.followCursor": "allLines",
+	"errorLens.gutterIconSet": "borderless",
+	"errorLens.gutterIconsEnabled": true,
+	"errorLens.exclude": [
+		// "*.sh"
 	],
 	// --Indefinite
 	"betterStatusBar.commands": [
@@ -1895,11 +1917,7 @@
 	"editor.guides.bracketPairs": "active",
 	"editor.stablePeek": true,
 	"workbench.activityBar.location": "hidden",
-	"file_peek.searchFileExtensions": [
-		".js",
-		".ts",
-		".html",
-		".css",
-		".scss"
-	]
+	"editor.minimap.enabled": false,
+	"terminal.integrated.defaultProfile.osx": "zsh",
+	"shfmt.formatIgnored": true
 }

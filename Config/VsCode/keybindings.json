@@ -4,7 +4,7 @@
 // s4 		- Move tab begin
 // s5 		- Debug
 // s6 		- CLOSE
-// s7 		- diff (TIMELINE)
+// s7 		- git diff (TIMELINE)
 // s8 		- Fix issue vietnamese
 // s9 		- Problems
 // s10 		- Change Ctrl+space -> Alt+space
@@ -276,7 +276,7 @@
 	},
 	//e6-----------------------------------------------
 	//s7--------------------------
-	// ====diff (TIMELINE)==== //
+	// ====Git diff (TIMELINE)==== //
 	{
 		"key": "down", // next change in diff mode
 		"command": "workbench.action.compareEditor.nextChange",
@@ -315,6 +315,12 @@
 	{
 		"key": "alt+f",
 		"command": "toggle.diff.renderSideBySide",
+		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor",
+	},
+	{
+		"key": "g",
+		"command": "quickMenuBuilder.openQuickMenu",
+		"args": "Help git Menu",
 		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor",
 	},
 	//e7--------------------------------------------------------------- 
@@ -776,6 +782,12 @@
 	//e17-----------------------------------------------------------------------------------------------------------
 	//s18-----------------------------------------------------------------------------------
 	// ===== Quick menu builder ===== //
+	{
+		"key": "shift+alt+/",
+		"command": "quickMenuBuilder.openQuickMenu",
+		"args": "Help Explorer Menu",
+		"when": "!editorTextFocus && filesExplorerFocus"
+	},
 	{
 		"key": "shift+alt+/",
 		"command": "quickMenuBuilder.openQuickMenu",
