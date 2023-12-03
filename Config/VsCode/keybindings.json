@@ -144,7 +144,6 @@
 		"command": "-editor.action.copyLinesUpAction",
 		"when": "editorTextFocus && !editorReadonly"
 	},
-	
 	//e2-----------------------------------------------
 	// 
 	{
@@ -963,5 +962,28 @@
 	{
 		"key": "ctrl+cmd+k",
 		"command": "editor.action.goToTypeDefinition"
+	},
+	{
+		"key": "ctrl+cmd+h",
+		"command": "git.openChange"
+	},
+	{
+		"key": "right",
+		"command": "editor.action.dirtydiff.next",
+		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
+	},
+	{
+		"key": "left",
+		"command": "editor.action.dirtydiff.previous",
+		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
+	},
+	{
+		"key": "alt+r",
+		"command": "git.revertChange",
+		// "when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
+	},
+	{
+		"key": "ctrl+cmd+z",
+		"command": "focusAndAcceptSuggestion"
 	},
 ]

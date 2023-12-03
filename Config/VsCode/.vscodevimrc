@@ -95,8 +95,7 @@ nnoremap < <<
 
 "search
 nnoremap <leader>s #
-
+         
 "quick mode
 inoremap <C-v> <ESC>V
-nnoremap <C-v> <ESC>V
 vnoremap <C-i> <ESC>i
