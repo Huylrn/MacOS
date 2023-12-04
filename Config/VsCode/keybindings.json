@@ -242,14 +242,6 @@
 		"when": "vim.active && inDebugMode && debugState == 'stopped'"
 	},
 	{
-		"key": "down", // step into
-		"command": "workbench.action.debug.stepInto",
-		"when": "vim.active && inDebugMode && debugState == 'stopped'"
-	},
-	//e5--------------------------------------------------------------
-	//s6-----------------
-	// ====CLOSE==== //
-	{
 		"key": "shift+escape", // close SideBar and quit explorer
 		"command": "workbench.action.closeSidebar",
 		"when": "vim.active && !filesExplorerFocus && !inKeybindings && !inKeybindingsSearch && sideBarFocus && !editorTextFocus"
@@ -278,11 +270,6 @@
 	//s7--------------------------
 	// ====Git diff (TIMELINE)==== //
 	{
-		"key": "down", // next change in diff mode
-		"command": "workbench.action.compareEditor.nextChange",
-		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
-	},
-	{
 		"key": "up", //  previous change in diff mode
 		"command": "workbench.action.compareEditor.previousChange",
 		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
@@ -306,6 +293,16 @@
 		"key": "left", // switch
 		"command": "diffEditor.switchSide",
 		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
+	},
+	{
+		"key": "right",
+		"command": "editor.action.dirtydiff.next",
+		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
+	},
+	{
+		"key": "left",
+		"command": "editor.action.dirtydiff.previous",
+		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
 	},
 	{
 		"key": "alt+m",
@@ -354,11 +351,6 @@
 	},
 	//s9-------------------
 	// ====Problems==== //
-	{
-		"key": "down",
-		"command": "editor.action.marker.next",
-		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
-	},
 	{
 		"key": "up",
 		"command": "editor.action.marker.prev",
@@ -540,6 +532,11 @@
 			]
 		},
 		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "f",
+		"command": "workbench.action.gotoSymbol",
+		"when": "!accessibilityHelpIsShown && !accessibleViewIsShown && listFocus && !inputFocus"
 	},
 	{
 		"key": "cmd+right",
@@ -978,16 +975,6 @@
 	{
 		"key": "ctrl+cmd+h",
 		"command": "git.openChange"
-	},
-	{
-		"key": "right",
-		"command": "editor.action.dirtydiff.next",
-		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
-	},
-	{
-		"key": "left",
-		"command": "editor.action.dirtydiff.previous",
-		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
 	},
 	{
 		"key": "alt+r",

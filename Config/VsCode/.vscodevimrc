@@ -30,7 +30,7 @@ nnoremap gj Gzz
 nnoremap gk ggzz
 
 "save
-" nnoremap <leader><leader><leader>l :w<CR>
+nnoremap <leader><leader><leader>; :w<CR>
 
 "quit
 nnoremap <leader><leader><leader>q :q<CR>
@@ -59,6 +59,7 @@ nnoremap \[ <C-w>h
 nnoremap \j <C-w>j
 "up
 nnoremap \k <C-w>k
+nnoremap \\ :vs<CR>
   "end"
 
 "move

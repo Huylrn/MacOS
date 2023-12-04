@@ -56,7 +56,7 @@
 	"vim.statusBarColors.replace": "#420A7F",
 	"vim.statusBarColors.insert": "#500128",
 	"vim.statusBarColors.commandlineinprogress": [
-		"#eaff003f",
+		"#5c6300"
 	],
 	"vim.incsearch": true,
 	"vim.easymotionDimBackground": false,
@@ -268,16 +268,6 @@
 				"workbench.view.scm"
 			],
 		},
-		// breadcrumb
-		{
-			"before": [
-				"leader",
-				"v"
-			],
-			"commands": [
-				"workbench.action.gotoSymbol"
-			], // "breadcrumbs.focusAndSelect"
-		},
 		// search in project
 		{
 			"before": [
@@ -453,12 +443,44 @@
 			"commands": [
 				"breadcrumbs.focusAndSelect"
 			],
-		}
+		},
+		{
+			"before": [
+				"\\",
+				"h"
+			],
+			"commands": [
+				"workbench.action.moveEditorToLeftGroup"
+			],
+		},
+		{
+			"before": [
+				"\\",
+				"l"
+			],
+			"commands": [
+				"workbench.action.moveEditorToRightGroup"
+			],
+		},
+		{
+			"before": [
+				"\\",
+				"j"
+			],
+			"commands": [
+				"workbench.action.moveEditorToBelowGroup"
+			],
+		},
+		{
+			"before": [
+				"\\",
+				"k"
+			],
+			"commands": [
+				"workbench.action.moveEditorToAboveGroup"
+			],
+		},
 	],
-	//e------------------------------------- 
-	//s--------------------- 
-	// =====Custom UI===== //
-	"workbench.colorTheme": "Omni",
 	"workbench.colorCustomizations": {
 		"[Transparent Color Theme]": {
 			"widget.shadow": "#ff333395",
@@ -565,17 +587,20 @@
 			"editorGutter.foldingControlForeground": "#ff00fb",
 			"editorGutter.modifiedBackground": "#00ffe5",
 			"peekViewTitleDescription.foreground": "#ffffff",
-			"peekViewTitleLabel.foreground": "#a6ff00"
+			"peekViewTitleLabel.foreground": "#a6ff00",
+			"editorWidget.foreground": "#ffffffe5",
+			"editorSuggestWidgetStatus.foreground": "#fbfbfb"
 		},
-		"statusBar.background": "#1F1B2C",
-		"statusBar.noFolderBackground": "#1F1B2C",
-		"statusBar.debuggingBackground": "#1F1B2C",
+		"statusBar.background": "#500128",
+		"statusBar.noFolderBackground": "#500128",
+		"statusBar.debuggingBackground": "#500128",
 		"statusBar.foreground": "#ffffff",
 		"statusBar.debuggingForeground": "#ffffff"
 	},
 	//e-----------------------------------------
 	//s--------------------------------
 	// =====UI===== //
+	"workbench.colorTheme": "Omni",
 	"editor.tokenColorCustomizations": {
 		//start 
 		"[Omni]": {
@@ -629,6 +654,20 @@
 						"foreground": "#e792ffd4"
 					}
 				},
+				{
+					"scope": "comment",
+					"settings": {
+						"foreground": "#b5bdf8f1",
+						"fontStyle": "italic"
+					}
+				}
+			]
+		},
+		"[Monokai]": {
+			"comments": "#b5bdf8f1",
+			"types": "#77dbfd",
+			"variables": "#ceadff",
+			"textMateRules": [
 				{
 					"scope": "comment",
 					"settings": {
@@ -1105,6 +1144,12 @@
 						"whichkey.transient.smartExpand"
 					]
 				},
+				{
+					"key": "=",
+					"name": "Zoom default",
+					"type": "command",
+					"command": "settings.cycle.zoomdefault",
+				},
 			]
 		},
 		{
@@ -1210,16 +1255,6 @@
 					"description": "» <C-h> or <C-j> or <C-k> or <C-l> «",
 					"command": ""
 				},
-				// {
-				//   "name": "<leader>",
-				//   "description": "space",
-				//   "command": ""
-				// },
-				// {
-				//   "name": "<leader><leader><leader>",
-				//   "description": "; or space + space + space",
-				//   "command": ""
-				// },
 				{
 					"name": "Insert mode",
 					"description": "shift + down",
@@ -1359,6 +1394,26 @@
 					"name": "Move focus to sticky scroll",
 					"description": "<leader>up or Option + tab",
 					"command": "editor.action.focusStickyScroll"
+				},
+				{
+					"name": "Move editor to left group",
+					"description": "\\ + h",
+					"command": "workbench.action.moveEditorToLeftGroup"
+				},
+				{
+					"name": "Move editor to right group",
+					"description": "\\ + l",
+					"command": "workbench.action.moveEditorToRightGroup"
+				},
+				{
+					"name": "Move editor to above group",
+					"description": "\\ + k",
+					"command": "workbench.action.moveEditorToAboveGroup"
+				},
+				{
+					"name": "Move editor to below group",
+					"description": "\\ + h",
+					"command": "workbench.action.moveEditorToBelowGroup"
 				},
 				{
 					"name": "Jump to function",
@@ -1743,15 +1798,12 @@
 			]
 		},
 		{
-			"id": "ignoreWhiteSpace",
+			"id": "zoomdefault",
 			"overrideWorkspaceSettings": false,
 			"values": [
 				{
-					"diffEditor.ignoreTrimWhitespace": true,
+					"window.zoomLevel": -0.82,
 				},
-				{
-					"diffEditor.ignoreTrimWhitespace": false,
-				}
 			]
 		}
 	],
@@ -1761,9 +1813,6 @@
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	// --Highlight Matching Tag
 	"highlight-matching-tag.styles": {
@@ -1797,8 +1846,8 @@
 	],
 	"apc.electron": {
 		"transparent": false,
-		"opacity": 0.90,
-		"backgroundColor": "#00000000",
+		"opacity": 0.88,
+		"backgroundColor": "#0000000",
 		"vibrancy": "ultra-dark",
 		"frame": false
 	},
@@ -1821,8 +1870,6 @@
 		"shellscript",
 		"vimrc"
 	],
-	// --editor
-	"editor.accessibilitySupport": "off",
 	// --minimap 
 	"editor.minimap.showSlider": "always",
 	"editor.minimap.maxColumn": 500,
@@ -1866,14 +1913,12 @@
 	"workbench.editorAssociations": {
 		"*.js": "default"
 	},
-	"prettier.bracketSameLine": true,
 	"update.mode": "default",
 	// --zen mode
 	"zenMode.centerLayout": true,
 	"zenMode.fullScreen": false,
 	"zenMode.showTabs": "none",
 	"zenMode.hideLineNumbers": true,
-	"window.zoomLevel": -1,
 	"window.doubleClickIconToClose": true,
 	"window.newWindowDimensions": "maximized",
 	// --Better Status Bar
@@ -1909,7 +1954,8 @@
 	"window.commandCenter": true,
 	"workbench.statusBar.visible": true,
 	"prettier.configPath": "$HOME/.config/vscode/.prettier",
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.defaultFormatter": "trunk.io",
+	// "editor.defaultFormatter": "esbenp.prettier-vscode",
 	"material-icon-theme.activeIconPack": "nest",
 	"workbench.productIconTheme": "Tabler",
 	"editor.bracketPairColorization.enabled": true,
@@ -1917,7 +1963,30 @@
 	"editor.guides.bracketPairs": "active",
 	"editor.stablePeek": true,
 	"workbench.activityBar.location": "hidden",
-	"editor.minimap.enabled": false,
 	"terminal.integrated.defaultProfile.osx": "zsh",
-	"shfmt.formatIgnored": true
+	"editor.minimap.enabled": false,
+	"workbench.editor.showTabs": "multiple",
+	"window.zoomLevel": -0.82,
+	// "prettier.bracketSameLine": true
+	"prettier.documentSelectors": [
+		"**/*.sh"
+	],
+	"files.exclude": {
+		"**/.trunk/*actions/": true,
+		"**/.trunk/*logs/": true,
+		"**/.trunk/*notifications/": true,
+		"**/.trunk/*out/": true,
+		"**/.trunk/*plugins/": true
+	},
+	"files.watcherExclude": {
+		"**/.trunk/*actions/": true,
+		"**/.trunk/*logs/": true,
+		"**/.trunk/*notifications/": true,
+		"**/.trunk/*out/": true,
+		"**/.trunk/*plugins/": true
+	},
+	"trunk.repoScanViewEnabled": true,
+	"trunk.showWhatsNew": false,
+	"trunk.addToolsToPath": true,
+	"trunk.showPreexistingIssues": false,
 }
