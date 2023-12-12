@@ -242,6 +242,11 @@
 		"when": "vim.active && inDebugMode && debugState == 'stopped'"
 	},
 	{
+		"key": "down",
+		"command": "workbench.action.debug.stepInto",
+		"when": "vim.active && inDebugMode && debugState == 'stopped'"
+	},
+	{
 		"key": "shift+escape", // close SideBar and quit explorer
 		"command": "workbench.action.closeSidebar",
 		"when": "vim.active && !filesExplorerFocus && !inKeybindings && !inKeybindingsSearch && sideBarFocus && !editorTextFocus"
@@ -356,9 +361,13 @@
 		"command": "editor.action.marker.prev",
 		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus",
 	},
-	// Show Hover (problems)
 	{
-		"key": "ctrl+p",
+		"key": "down",
+		"command": "editor.action.marker.next",
+		"when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus",
+	},
+	{
+		"key": "ctrl+p", // Show Hover (problems)
 		"command": "editor.action.showHover",
 		"when": "vim.active && editorTextFocus"
 	},
@@ -975,11 +984,6 @@
 	{
 		"key": "ctrl+cmd+h",
 		"command": "git.openChange"
-	},
-	{
-		"key": "alt+r",
-		"command": "git.revertChange",
-		// "when": "vim.active && vim.mode == 'Visual' && editorFocus && inputFocus"
 	},
 	{
 		"key": "ctrl+cmd+z",
