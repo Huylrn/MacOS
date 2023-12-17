@@ -82,6 +82,8 @@ vnoremap i A
 vnoremap g gc
 vnoremap / <ESC>/
 vnoremap <ESC> <ESC><ESC>
+vnoremap H ^
+vnoremap L $h
 
 "Duplicate
 vnoremap o ykpgv

@@ -485,67 +485,6 @@
       "editorCursor.foreground": "#ffffff"
     },
     "[Omni]": {
-      "sideBarSectionHeader.foreground": "#f9f5f5",
-      "sideBarTitle.foreground": "#dfb9ff",
-      "sideBar.foreground": "#ffffff",
-      "input.placeholderForeground": "#d89aff",
-      "focusBorder": "#ffffff",
-      "editor.findMatchHighlightBackground": "#ffffff59",
-      "editor.findMatchBackground": "#ffffff83",
-      "progressBar.background": "#ffffff",
-      "list.activeSelectionIconForeground": "#ffffff",
-      "list.activeSelectionBackground": "#ffffff28",
-      "breadcrumb.foreground": "#ffffff",
-      "breadcrumb.activeSelectionForeground": "#ff8cea",
-      "breadcrumb.focusForeground": "#ff8cea",
-      "selection.background": "#df90ff81",
-      "list.hoverBackground": "#ffffff49",
-      "list.errorForeground": "#ff6767",
-      "list.focusBackground": "#ffffff48",
-      "editor.wordHighlightBackground": "#ffffff35",
-      "editorSuggestWidget.selectedBackground": "#ffffff40",
-      "editorSuggestWidget.highlightForeground": "#ffffff",
-      "editorSuggestWidget.selectedForeground": "#ffffff",
-      "editorSuggestWidget.focusHighlightForeground": "#debfff",
-      "activityBar.foreground": "#ff00d0",
-      "activityBar.inactiveForeground": "#ffffff",
-      "activityBar.activeBorder": "#ff00d0",
-      "activityBarBadge.foreground": "#ffffff",
-      "activityBarBadge.background": "#d580fff1",
-      "activityBar.background": "#16151F",
-      "editorLineNumber.activeForeground": "#ffffff",
-      "editor.selectionBackground": "#ffffff68",
-      "editorCursor.foreground": "#ffffff",
-      "editorGroupHeader.tabsBorder": "#ffffffca",
-      "scrollbarSlider.hoverBackground": "#ffffffa9",
-      "scrollbarSlider.background": "#ffffff6c",
-      "scrollbar.shadow": "#ffffff",
-      "tree.inactiveIndentGuidesStroke": "#ffffff6c",
-      "tree.indentGuidesStroke": "#ffffff",
-      "gitDecoration.modifiedResourceForeground": "#7afc9ae5",
-      "gitDecoration.untrackedResourceForeground": "#b1a3ff",
-      "gitDecoration.ignoredResourceForeground": "#ff6cd3b9",
-      "tab.activeBorderTop": "#fbff00",
-      "tab.inactiveForeground": "#ffffff8d",
-      "tab.activeForeground": "#ffffff",
-      "tab.lastPinnedBorder": "#ff0000",
-      "tab.activeBackground": "#323132",
-      "panelTitle.activeBorder": "#e1ff00",
-      "panel.border": "#ff000000",
-      "widget.shadow": "#7f07ef",
-      "listFilterWidget.shadow": "#ff0000",
-      "inlineChat.shadow": "#eaff003f",
-      "statusBar.foreground": "#ffffff",
-      "statusBarItem.remoteBackground": "#5f4c9a",
-      "minimap.infoHighlight": "#ffffff",
-      "minimapSlider.background": "#fcfafa41",
-      "editorInfo.border": "#00aaff",
-      "editorInfo.foreground": "#ff000000",
-      "editorError.foreground": "#ff000000",
-      "editorError.border": "#ff0000",
-      "editorWarning.border": "#eaff00",
-      "editorWarning.foreground": "#ff000000",
-      "editorWhitespace.foreground": "#ffffff",
       "editorBracketHighlight.foreground1": "#fff86a",
       "editorBracketHighlight.foreground2": "#ffaa00",
       "editorBracketHighlight.foreground3": "#ff62bb",
@@ -597,7 +536,7 @@
             "fontStyle": ""
           }
         },
-        {
+        { // c++
           "scope": "entity.name.function.operator.cpp",
           "settings": {
             "fontStyle": ""
@@ -675,7 +614,14 @@
         { // =
           "scope": "keyword.operator.assignment",
           "settings": {
-            "foreground": "#C792EA"
+            "foreground": "#C792EA",
+            "fontStyle": "italic bold"
+          }
+        },
+        { // new
+          "scope": "keyword.operator.new.cpp",
+          "settings": {
+            "fontStyle": "italic bold"
           }
         },
         { // string
@@ -684,25 +630,25 @@
             "foreground": "#dfe4ec"
           }
         },
-        {
+        { // ""
           "scope": "string.quoted",
           "settings": {
             "foreground": "#C3E88D"
           }
         },
-        {
+        { // "
           "scope": "punctuation.definition.string.end",
           "settings": {
             "foreground": "#D9F5DD"
           }
         },
-        {
+        { // "
           "scope": "punctuation.definition.string.begin",
           "settings": {
             "foreground": "#D9F5DD"
           }
         },
-        {
+        { // ""
           "scope": "punctuation",
           "settings": {
             "foreground": "#C3E88D"
@@ -750,6 +696,24 @@
           "scope": "punctuation.support.type.property-name.end,punctuation.support.type.property-name.begin",
           "settings": {
             "foreground": "#e792ffd4"
+          }
+        },
+        { // pointer
+          "scope": "storage.modifier.pointer.cpp",
+          "settings": {
+            "foreground": "#89DDFF"
+          }
+        },
+        {
+          "scope": "string.quoted.other.lt-gt.include.cpp",
+          "settings": {
+            "fontStyle": "italic bold"
+          }
+        },
+        {
+          "scope": "storage.type.namespace.directive.cpp",
+          "settings": {
+            "fontStyle": "italic"
           }
         },
       ],
@@ -2015,7 +1979,6 @@
   "diffEditor.hideUnchangedRegions.enabled": true,
   "editor.stickyScroll.maxLineCount": 3,
   "search.showLineNumbers": true,
-  "editor.lineNumbers": "on",
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": true,
   "workbench.statusBar.visible": true,
@@ -2024,7 +1987,6 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.guides.bracketPairs": true,
-  "editor.stablePeek": true,
   "workbench.activityBar.location": "hidden",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "workbench.editor.showTabs": "multiple",
@@ -2051,7 +2013,10 @@
     "bats"
   ],
   "editor.formatOnSave": true,
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
+  "editor.formatOnPaste": true,
   "shellformat.flag": "-d",
+  "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
+  "editor.accessibilitySupport": "off",
 }
