@@ -518,37 +518,37 @@
     "[Omni]": {
       "comments": "#b5bdf8cd",
       "textMateRules": [
-        { // c++
+        {
           "scope": "punctuation.definition.directive.cpp",
           "settings": {
             "foreground": "#C792EA"
           }
         },
-        { // c++
+        {
           "scope": "entity.name.function.operator.member.cpp",
           "settings": {
             "fontStyle": ""
           }
         },
-        { // c++
+        {
           "scope": "entity.name.function.templated.cpp",
           "settings": {
             "fontStyle": ""
           }
         },
-        { // c++
+        {
           "scope": "entity.name.function.operator.cpp",
           "settings": {
             "fontStyle": ""
           }
         },
-        { // shell
+        {
           "scope": "variable.parameter.positional.shell",
           "settings": {
             "foreground": "#00fffb"
           }
         },
-        { // shell
+        {
           "scope": "entity.name.command.shell",
           "settings": {
             "fontStyle": "underline"
@@ -566,89 +566,89 @@
             "foreground": "#f37e0a"
           }
         },
-        { // function
+        {
           "scope": "storage",
           "settings": {
             "foreground": "#C792EA"
           }
         },
-        { // function
+        {
           "scope": "storage.modifier",
           "settings": {
             "foreground": "#C792EA",
             "fontStyle": "italic"
           }
         },
-        { // function
+        {
           "scope": "support.function",
           "settings": {
             "foreground": "#89DDFF",
             "fontStyle": "italic"
           }
         },
-        { // function name
+        {
           "scope": "entity.name.function",
           "settings": {
             "foreground": "#82AAFF",
             "fontStyle": "underline"
           }
         },
-        { // variable
+        {
           "scope": "variable",
           "settings": {
             "foreground": "#FFCB6B"
           }
         },
-        { // variable for shell 
+        {
           "scope": "variable.other.normal.shell",
           "settings": {
             "foreground": "#FFCB6B"
           }
         },
-        { // variable for shell 
+        {
           "scope": "variable.other.assignment.shell",
           "settings": {
             "foreground": "#FFCB6B"
           }
         },
-        { // =
+        {
           "scope": "keyword.operator.assignment",
           "settings": {
             "foreground": "#C792EA",
             "fontStyle": "italic bold"
           }
         },
-        { // new
+        {
           "scope": "keyword.operator.new.cpp",
           "settings": {
             "fontStyle": "italic bold"
           }
         },
-        { // string
+        {
           "scope": "string.unquoted",
           "settings": {
             "foreground": "#dfe4ec"
           }
         },
-        { // ""
+        {
           "scope": "string.quoted",
           "settings": {
             "foreground": "#C3E88D"
           }
         },
-        { // "
+        {
           "scope": "punctuation.definition.string.end",
           "settings": {
             "foreground": "#D9F5DD"
           }
         },
-        { // "
+        {
           "scope": "punctuation.definition.string.begin",
           "settings": {
             "foreground": "#D9F5DD"
           }
         },
-        { // ""
+        {
           "scope": "punctuation",
           "settings": {
             "foreground": "#C3E88D"
@@ -678,14 +678,14 @@
             "foreground": "#F78C6C"
           }
         },
-        { // if , for 
+        {
           "scope": "keyword.control",
           "settings": {
             "foreground": "#C792EA",
             "fontStyle": "italic"
           }
         },
-        { // comment
+        {
           "scope": "comment",
           "settings": {
             "foreground": "#b5bdf8c9",
@@ -698,7 +698,7 @@
             "foreground": "#e792ffd4"
           }
         },
-        { // pointer
+        {
           "scope": "storage.modifier.pointer.cpp",
           "settings": {
             "foreground": "#89DDFF"
@@ -722,42 +722,8 @@
             "fontStyle": ""
           }
         }
-      ],
-    },
-    //start
-    "[Monokai]": {
-      "comments": "#b5bdf8f1",
-      "types": "#77dbfd",
-      "variables": "#ceadff",
-      "textMateRules": [
-        {
-          "scope": "comment",
-          "settings": {
-            "foreground": "#b5bdf8f1",
-            "fontStyle": "italic"
-          }
-        }
       ]
-    },
-    //start
-    "[Dracula]": {
-      "textMateRules": [
-        {
-          "scope": "string",
-          "settings": {
-            "foreground": "#FFE887"
-          }
-        },
-        {
-          "scope": "comment",
-          "settings": {
-            "foreground": "#b5bdf8f1",
-            "fontStyle": "italic"
-          }
-        }
-      ]
-    },
-    //start
+    }
   },
   //e---------------------------------------------------
   "whichkey.bindings": [
@@ -1033,8 +999,8 @@
           "type": "bindings",
           "bindings": [
             {
-              "key": "",
-              "name": "",
+              "key": "\t",
+              "name": "Omni_dream",
               "type": "command",
               "command": "toggle",
               "args": {
@@ -1253,6 +1219,17 @@
                       },
                     },
                   },
+                ],
+              },
+            },
+            {
+              "key": "",
+              "name": "Omni_pune",
+              "type": "command",
+              "command": "toggle",
+              "args": {
+                "id": "Omni_dream",
+                "value": [
                   {
                     "editor.tokenColorCustomizations": {
                       "[Omni]": {
