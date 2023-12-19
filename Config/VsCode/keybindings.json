@@ -19,9 +19,10 @@
 // s19		- Search
 // s20 		- Terminal
 // s21 		- File browser
+// s22		- Bookmarks
 // s 			- Disable keybindings
 [
-	//s1--------------- 
+	//s1---------------
 	// --
 	{
 		"key": "cmd+d",
@@ -277,6 +278,11 @@
 	{
 		"key": "up", //  previous change in diff mode
 		"command": "workbench.action.compareEditor.previousChange",
+		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
+	},
+	{
+		"key": "down", //  previous change in diff mode
+		"command": "workbench.action.compareEditor.nextChange",
 		"when": "vim.active && vim.mode != 'Insert' && isInDiffEditor"
 	},
 	{
@@ -955,7 +961,30 @@
 		"command": "-file-browser.actions",
 		"when": "inFileBrowser"
 	},
-	//e20--------------------------------
+	//e21--------------------------------
+	//s22---------------------
+	// ==== Bookmarks ==== //
+	{
+		"key": "left",
+		"command": "bookmarks.jumpToNext",
+		"when": "vim.active && vim.mode == 'Visual' && editorTextFocus"
+	},
+	{
+		"key": "alt+b",
+		"command": "bookmarks.jumpToNext",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "right",
+		"command": "bookmarks.jumpToPrevious",
+		"when": "vim.active && vim.mode == 'Visual' && editorTextFocus"
+	},
+	{
+		"key": "alt+shift+b",
+		"command": "bookmarks.jumpToPrevious",
+		"when": "editorTextFocus"
+	},
+	// e22-----------------------------------
 	//s---------------------------------------------
 	{
 		"key": "cmd+c", // disable copy in vim mode

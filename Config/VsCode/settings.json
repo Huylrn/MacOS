@@ -194,7 +194,7 @@
     {
       "before": [
         "leader",
-        "b"
+        "v"
       ],
       "commands": [
         "workbench.action.focusStatusBar"
@@ -478,7 +478,38 @@
       "commands": [
         "workbench.action.moveEditorToAboveGroup"
       ]
-    }
+    },
+    {
+      "before": [
+        "leader",
+        "b"
+      ],
+      "commands": [
+        "bookmarks.toggle",
+        // "bookmarks.list"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "leader",
+        "b"
+      ],
+      "commands": [
+        "bookmarks.list"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "leader",
+        "leader",
+        "b"
+      ],
+      "commands": [
+        "bookmarks.listFromAllFiles"
+      ]
+    },
   ],
   "workbench.colorCustomizations": {
     "[Palenight Italic]": {
@@ -745,36 +776,54 @@
       ]
     },
     {
-      "key": "F",
-      "name": "fzf search",
-      "icon": "search",
-      "command": "extension.multiCommand.execute",
-      "args": {
-        "sequence": [
-          {
-            "command": "command-runner.run",
-            "args": {
-              "command": "fzf-p | xargs -r code"
-            }
-          },
-          {
-            "command": "workbench.action.terminal.moveToEditor"
-          }
-        ]
-      }
-    },
-    {
-      "key": "/",
-      "name": "Search in project",
-      "icon": "search",
-      "type": "command",
-      "command": "search.action.openNewEditorToSide"
-    },
-    {
       "key": ".",
       "name": "Repeat most recent action",
       "type": "command",
       "command": "whichkey.repeatMostRecent"
+    },
+    {
+      "key": "/",
+      "name": "« Search »",
+      "icon": "search",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "/",
+          "name": "Search in project",
+          "icon": "search",
+          "type": "command",
+          "command": "search.action.openNewEditorToSide"
+        },
+        {
+          "key": "f",
+          "name": "fzf search",
+          "icon": "search",
+          "command": "extension.multiCommand.execute",
+          "args": {
+            "sequence": [
+              {
+                "command": "command-runner.run",
+                "args": {
+                  "command": "fzf-p | xargs -r code"
+                }
+              },
+              {
+                "command": "workbench.action.terminal.moveToEditor"
+              }
+            ]
+          }
+        },
+        {
+          "key": "s",
+          "name": "Search with selection",
+          "icon": "search",
+          "type": "bindings",
+          "commands": [
+            "editor.action.addSelectionToNextFindMatch",
+            "workbench.action.findInFiles"
+          ]
+        },
+      ]
     },
     {
       "key": "b",
@@ -881,6 +930,31 @@
       ]
     },
     {
+      "key": "w",
+      "name": "« Window »",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "z",
+          "name": "Combine all editors",
+          "type": "command",
+          "command": "workbench.action.joinAllGroups"
+        },
+        {
+          "key": "d",
+          "name": "Close editor group",
+          "type": "command",
+          "command": "workbench.action.closeEditorsInGroup"
+        },
+        {
+          "key": "x",
+          "name": "Close all editor groups",
+          "type": "command",
+          "command": "workbench.action.closeAllGroups"
+        }
+      ]
+    },
+    {
       "key": "i",
       "name": "« Insert »",
       "type": "bindings",
@@ -891,16 +965,6 @@
           "type": "command",
           "command": "editor.action.insertSnippet"
         }
-      ]
-    },
-    {
-      "key": "s",
-      "name": "Search with selection",
-      "icon": "search",
-      "type": "bindings",
-      "commands": [
-        "editor.action.addSelectionToNextFindMatch",
-        "workbench.action.findInFiles"
       ]
     },
     {
@@ -971,387 +1035,6 @@
       ]
     },
     {
-      "key": "u",
-      "name": "« UI »",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "S",
-          "name": "Toggle status Bar",
-          "type": "command",
-          "command": "workbench.action.toggleStatusbarVisibility"
-        },
-        {
-          "key": "F",
-          "name": "Toggle full screen",
-          "type": "command",
-          "command": "workbench.action.toggleFullScreen"
-        },
-        {
-          "key": "t",
-          "name": "Select theme",
-          "type": "command",
-          "command": "workbench.action.selectTheme"
-        },
-        {
-          "key": "T",
-          "name": "Theme for text",
-          "type": "bindings",
-          "bindings": [
-            {
-              "key": "\t",
-              "name": "Omni_dream",
-              "type": "command",
-              "command": "toggle",
-              "args": {
-                "id": "Omni_dream",
-                "value": [
-                  {
-                    "editor.tokenColorCustomizations": {
-                      "[Omni]": {
-                        "comments": "#b5bdf8cd",
-                        "textMateRules": [
-                          { // c++
-                            "scope": "punctuation.definition.directive.cpp",
-                            "settings": {
-                              "foreground": "#C792EA"
-                            }
-                          },
-                          { // c++
-                            "scope": "entity.name.function.operator.member.cpp",
-                            "settings": {
-                              "fontStyle": ""
-                            }
-                          },
-                          { // c++
-                            "scope": "entity.name.function.templated.cpp",
-                            "settings": {
-                              "fontStyle": ""
-                            }
-                          },
-                          { // c++
-                            "scope": "entity.name.function.operator.cpp",
-                            "settings": {
-                              "fontStyle": ""
-                            }
-                          },
-                          { // shell
-                            "scope": "variable.parameter.positional.shell",
-                            "settings": {
-                              "foreground": "#00fffb"
-                            }
-                          },
-                          { // shell
-                            "scope": "entity.name.command.shell",
-                            "settings": {
-                              "fontStyle": "underline"
-                            }
-                          },
-                          {
-                            "scope": "support.type.property-name",
-                            "settings": {
-                              "foreground": "#d5bdf8"
-                            }
-                          },
-                          {
-                            "scope": "constant",
-                            "settings": {
-                              "foreground": "#f37e0a"
-                            }
-                          },
-                          { // function
-                            "scope": "storage",
-                            "settings": {
-                              "foreground": "#C792EA"
-                            }
-                          },
-                          { // function
-                            "scope": "storage.modifier",
-                            "settings": {
-                              "foreground": "#C792EA",
-                              "fontStyle": "italic"
-                            }
-                          },
-                          { // function
-                            "scope": "support.function",
-                            "settings": {
-                              "foreground": "#89DDFF",
-                              "fontStyle": "italic"
-                            }
-                          },
-                          { // function name
-                            "scope": "entity.name.function",
-                            "settings": {
-                              "foreground": "#82AAFF",
-                              "fontStyle": "underline"
-                            }
-                          },
-                          { // variable
-                            "scope": "variable",
-                            "settings": {
-                              "foreground": "#FFCB6B"
-                            }
-                          },
-                          { // variable for shell 
-                            "scope": "variable.other.normal.shell",
-                            "settings": {
-                              "foreground": "#FFCB6B"
-                            }
-                          },
-                          { // variable for shell 
-                            "scope": "variable.other.assignment.shell",
-                            "settings": {
-                              "foreground": "#FFCB6B"
-                            }
-                          },
-                          { // =
-                            "scope": "keyword.operator.assignment",
-                            "settings": {
-                              "foreground": "#C792EA",
-                              "fontStyle": "italic bold"
-                            }
-                          },
-                          { // new
-                            "scope": "keyword.operator.new.cpp",
-                            "settings": {
-                              "fontStyle": "italic bold"
-                            }
-                          },
-                          { // string
-                            "scope": "string.unquoted",
-                            "settings": {
-                              "foreground": "#dfe4ec"
-                            }
-                          },
-                          { // ""
-                            "scope": "string.quoted",
-                            "settings": {
-                              "foreground": "#C3E88D"
-                            }
-                          },
-                          { // "
-                            "scope": "punctuation.definition.string.end",
-                            "settings": {
-                              "foreground": "#D9F5DD"
-                            }
-                          },
-                          { // "
-                            "scope": "punctuation.definition.string.begin",
-                            "settings": {
-                              "foreground": "#D9F5DD"
-                            }
-                          },
-                          { // ""
-                            "scope": "punctuation",
-                            "settings": {
-                              "foreground": "#C3E88D"
-                            }
-                          },
-                          {
-                            "scope": "constant.character.escape",
-                            "settings": {
-                              "foreground": "#F78C6C"
-                            }
-                          },
-                          {
-                            "scope": "variable.parameter",
-                            "settings": {
-                              "foreground": "#7986E7"
-                            }
-                          },
-                          {
-                            "scope": "keyword.operator",
-                            "settings": {
-                              "foreground": "#89DDFF"
-                            }
-                          },
-                          {
-                            "scope": "constant.numeric",
-                            "settings": {
-                              "foreground": "#F78C6C"
-                            }
-                          },
-                          { // if , for 
-                            "scope": "keyword.control",
-                            "settings": {
-                              "foreground": "#C792EA",
-                              "fontStyle": "italic"
-                            }
-                          },
-                          { // comment
-                            "scope": "comment",
-                            "settings": {
-                              "foreground": "#b5bdf8c9",
-                              "fontStyle": "italic"
-                            }
-                          },
-                          {
-                            "scope": "punctuation.support.type.property-name.end,punctuation.support.type.property-name.begin",
-                            "settings": {
-                              "foreground": "#e792ffd4"
-                            }
-                          },
-                          { // pointer
-                            "scope": "storage.modifier.pointer.cpp",
-                            "settings": {
-                              "foreground": "#89DDFF"
-                            }
-                          },
-                          {
-                            "scope": "string.quoted.other.lt-gt.include.cpp",
-                            "settings": {
-                              "fontStyle": "italic bold"
-                            }
-                          },
-                          {
-                            "scope": "storage.type.namespace.directive.cpp",
-                            "settings": {
-                              "fontStyle": "italic"
-                            }
-                          },
-                          {
-                            "scope": "entity.name.command.shell",
-                            "settings": {
-                              "fontStyle": ""
-                            }
-                          }
-                        ],
-                      },
-                    },
-                  },
-                ],
-              },
-            },
-            {
-              "key": "",
-              "name": "Omni_pune",
-              "type": "command",
-              "command": "toggle",
-              "args": {
-                "id": "Omni_dream",
-                "value": [
-                  {
-                    "editor.tokenColorCustomizations": {
-                      "[Omni]": {
-                        "strings": "#f50202",
-                        "comments": "#b5bdf8f1",
-                        // "functions": "#FF0000",
-                        "types": "#77dbfd",
-                        // "numbers": "#FF0000",
-                        // "keywords": "#FF0000",
-                        "variables": "#ceadff",
-                        "textMateRules": [
-                          {
-                            "scope": "keyword",
-                            "settings": {
-                              "foreground": "#fe7abe"
-                            }
-                          },
-                          {
-                            "scope": "entity.name.function.operator.cpp",
-                            "settings": {
-                              "foreground": "#ffffff"
-                            }
-                          },
-                          {
-                            "scope": "variable.other.local.cpp",
-                            "settings": {
-                              "foreground": "#ffffff"
-                            }
-                          },
-                          {
-                            "scope": "storage",
-                            "settings": {
-                              "foreground": "#eaade0"
-                            }
-                          },
-                          {
-                            "scope": "entity.name.function.operator.member.cpp",
-                            "settings": {
-                              "foreground": "#ffffff"
-                            }
-                          },
-                          {
-                            "scope": "string",
-                            "settings": {
-                              "foreground": "#FFE887"
-                            }
-                          },
-                          {
-                            "scope": "punctuation.support.type.property-name.end,punctuation.support.type.property-name.begin",
-                            "settings": {
-                              "foreground": "#e792ffd4"
-                            }
-                          },
-                          {
-                            "scope": "comment",
-                            "settings": {
-                              "foreground": "#b5bdf8f1",
-                              "fontStyle": "italic"
-                            }
-                          }
-                        ]
-                      },
-                    }
-                  }
-                ],
-              },
-            }
-          ]
-        },
-        {
-          "key": "z",
-          "name": "Toggle zen mode",
-          "type": "command",
-          "command": "workbench.action.toggleZenMode"
-        },
-        {
-          "key": "Z",
-          "name": "Toggle word wrap",
-          "type": "command",
-          "command": "editor.action.toggleWordWrap"
-        },
-        {
-          "key": "r",
-          "name": "Font zooming transient",
-          "type": "command",
-          "command": "whichkey.showTransient",
-          "args": "whichkey.transient.fontZooming"
-        },
-        {
-          "key": "f",
-          "name": "Change font",
-          "type": "command",
-          "command": "font-switcher.switchFont"
-        }
-      ]
-    },
-    {
-      "key": "w",
-      "name": "« Window »",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "z",
-          "name": "Combine all editors",
-          "type": "command",
-          "command": "workbench.action.joinAllGroups"
-        },
-        {
-          "key": "d",
-          "name": "Close editor group",
-          "type": "command",
-          "command": "workbench.action.closeEditorsInGroup"
-        },
-        {
-          "key": "x",
-          "name": "Close all editor groups",
-          "type": "command",
-          "command": "workbench.action.closeAllGroups"
-        }
-      ]
-    },
-    {
       "key": "t",
       "name": "« Text »",
       "type": "bindings",
@@ -1394,6 +1077,12 @@
           ]
         },
         {
+          "key": "f",
+          "name": "Toggle foldfix(vim)",
+          "type": "command",
+          "command": "settings.cycle.foldfix"
+        },
+        {
           "key": "=",
           "name": "Zoom default",
           "type": "command",
@@ -1421,10 +1110,73 @@
       ]
     },
     {
-      "key": "T",
-      "name": "Toggle foldfix(vim)",
-      "type": "command",
-      "command": "settings.cycle.foldfix"
+      "key": "u",
+      "name": "« UI »",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "S",
+          "name": "Toggle status Bar",
+          "type": "command",
+          "command": "workbench.action.toggleStatusbarVisibility"
+        },
+        {
+          "key": "F",
+          "name": "Toggle full screen",
+          "type": "command",
+          "command": "workbench.action.toggleFullScreen"
+        },
+        {
+          "key": "t",
+          "name": "Select theme",
+          "type": "command",
+          "command": "workbench.action.selectTheme"
+        },
+        {
+          "key": "T",
+          "name": "Theme for text",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "\t",
+              "name": "Omni_dream",
+              "type": "command",
+              "command": "settings.cycle.omni_dream",
+            },
+            {
+              "key": "",
+              "name": "Omni_pune",
+              "type": "command",
+              "command": "settings.cycle.omni_pune",
+            }
+          ]
+        },
+        {
+          "key": "z",
+          "name": "Toggle zen mode",
+          "type": "command",
+          "command": "workbench.action.toggleZenMode"
+        },
+        {
+          "key": "Z",
+          "name": "Toggle word wrap",
+          "type": "command",
+          "command": "editor.action.toggleWordWrap"
+        },
+        {
+          "key": "r",
+          "name": "Font zooming transient",
+          "type": "command",
+          "command": "whichkey.showTransient",
+          "args": "whichkey.transient.fontZooming"
+        },
+        {
+          "key": "f",
+          "name": "Change font",
+          "type": "command",
+          "command": "font-switcher.switchFont"
+        }
+      ]
     },
     {
       "key": "z",
@@ -1606,7 +1358,7 @@
         },
         {
           "name": "Move focus to statusBar",
-          "description": "<leader>b",
+          "description": "<leader>v",
           "command": "workbench.action.focusStatusBar"
         },
         {
@@ -2000,6 +1752,324 @@
   "settings.cycle.logLevel": "info",
   "settings.cycle": [
     {
+      "id": "omni_dream",
+      "values": [
+        {
+          "editor.tokenColorCustomizations": {
+            "[Omni]": {
+              "comments": "#b5bdf8cd",
+              "textMateRules": [
+                { // c++
+                  "scope": "punctuation.definition.directive.cpp",
+                  "settings": {
+                    "foreground": "#C792EA"
+                  }
+                },
+                { // c++
+                  "scope": "entity.name.function.operator.member.cpp",
+                  "settings": {
+                    "fontStyle": ""
+                  }
+                },
+                { // c++
+                  "scope": "entity.name.function.templated.cpp",
+                  "settings": {
+                    "fontStyle": ""
+                  }
+                },
+                { // c++
+                  "scope": "entity.name.function.operator.cpp",
+                  "settings": {
+                    "fontStyle": ""
+                  }
+                },
+                { // shell
+                  "scope": "variable.parameter.positional.shell",
+                  "settings": {
+                    "foreground": "#00fffb"
+                  }
+                },
+                { // shell
+                  "scope": "entity.name.command.shell",
+                  "settings": {
+                    "fontStyle": "underline"
+                  }
+                },
+                {
+                  "scope": "support.type.property-name",
+                  "settings": {
+                    "foreground": "#d5bdf8"
+                  }
+                },
+                {
+                  "scope": "constant",
+                  "settings": {
+                    "foreground": "#f37e0a"
+                  }
+                },
+                { // function
+                  "scope": "storage",
+                  "settings": {
+                    "foreground": "#C792EA"
+                  }
+                },
+                { // function
+                  "scope": "storage.modifier",
+                  "settings": {
+                    "foreground": "#C792EA",
+                    "fontStyle": "italic"
+                  }
+                },
+                { // function
+                  "scope": "support.function",
+                  "settings": {
+                    "foreground": "#89DDFF",
+                    "fontStyle": "italic"
+                  }
+                },
+                { // function name
+                  "scope": "entity.name.function",
+                  "settings": {
+                    "foreground": "#82AAFF",
+                    "fontStyle": "underline"
+                  }
+                },
+                { // variable
+                  "scope": "variable",
+                  "settings": {
+                    "foreground": "#FFCB6B"
+                  }
+                },
+                { // variable for shell 
+                  "scope": "variable.other.normal.shell",
+                  "settings": {
+                    "foreground": "#FFCB6B"
+                  }
+                },
+                { // variable for shell 
+                  "scope": "variable.other.assignment.shell",
+                  "settings": {
+                    "foreground": "#FFCB6B"
+                  }
+                },
+                { // =
+                  "scope": "keyword.operator.assignment",
+                  "settings": {
+                    "foreground": "#C792EA",
+                    "fontStyle": "italic bold"
+                  }
+                },
+                { // new
+                  "scope": "keyword.operator.new.cpp",
+                  "settings": {
+                    "fontStyle": "italic bold"
+                  }
+                },
+                { // string
+                  "scope": "string.unquoted",
+                  "settings": {
+                    "foreground": "#dfe4ec"
+                  }
+                },
+                { // ""
+                  "scope": "string.quoted",
+                  "settings": {
+                    "foreground": "#C3E88D"
+                  }
+                },
+                { // "
+                  "scope": "punctuation.definition.string.end",
+                  "settings": {
+                    "foreground": "#D9F5DD"
+                  }
+                },
+                { // "
+                  "scope": "punctuation.definition.string.begin",
+                  "settings": {
+                    "foreground": "#D9F5DD"
+                  }
+                },
+                { // ""
+                  "scope": "punctuation",
+                  "settings": {
+                    "foreground": "#C3E88D"
+                  }
+                },
+                {
+                  "scope": "constant.character.escape",
+                  "settings": {
+                    "foreground": "#F78C6C"
+                  }
+                },
+                {
+                  "scope": "variable.parameter",
+                  "settings": {
+                    "foreground": "#7986E7"
+                  }
+                },
+                {
+                  "scope": "keyword.operator",
+                  "settings": {
+                    "foreground": "#89DDFF"
+                  }
+                },
+                {
+                  "scope": "constant.numeric",
+                  "settings": {
+                    "foreground": "#F78C6C"
+                  }
+                },
+                { // if , for 
+                  "scope": "keyword.control",
+                  "settings": {
+                    "foreground": "#C792EA",
+                    "fontStyle": "italic"
+                  }
+                },
+                { // comment
+                  "scope": "comment",
+                  "settings": {
+                    "foreground": "#b5bdf8c9",
+                    "fontStyle": "italic"
+                  }
+                },
+                {
+                  "scope": "punctuation.support.type.property-name.end,punctuation.support.type.property-name.begin",
+                  "settings": {
+                    "foreground": "#e792ffd4"
+                  }
+                },
+                { // pointer
+                  "scope": "storage.modifier.pointer.cpp",
+                  "settings": {
+                    "foreground": "#89DDFF"
+                  }
+                },
+                {
+                  "scope": "string.quoted.other.lt-gt.include.cpp",
+                  "settings": {
+                    "fontStyle": "italic bold"
+                  }
+                },
+                {
+                  "scope": "storage.type.namespace.directive.cpp",
+                  "settings": {
+                    "fontStyle": "italic"
+                  }
+                },
+                {
+                  "scope": "entity.name.command.shell",
+                  "settings": {
+                    "fontStyle": ""
+                  }
+                }
+              ],
+            },
+          },
+        },
+      ],
+    },
+    {
+      "id": "omni_pune",
+      "values": [
+        {
+          "editor.tokenColorCustomizations": {
+            "[Omni]": {
+              "strings": "#f50202",
+              "comments": "#b5bdf8f1",
+              // "functions": "#FF0000",
+              "types": "#77dbfd",
+              // "numbers": "#FF0000",
+              // "keywords": "#FF0000",
+              "variables": "#ceadff",
+              "textMateRules": [
+                {
+                  "scope": "source.shell variable.other",
+                  "settings": {
+                    "foreground": "#FFE887"
+                  }
+                },
+                {
+                  "scope": "string.quoted.double.json.comments",
+                  "settings": {
+                    "foreground": "#FFE887"
+                  }
+                },
+                {
+                  "scope": "keyword.operator.pipe.shell",
+                  "settings": {
+                    "fontStyle": ""
+                  }
+                },
+                {
+                  "scope": "keyword",
+                  "settings": {
+                    "foreground": "#fe7abe",
+                    "fontStyle": "italic"
+                  }
+                },
+                {
+                  "scope": "entity.name.function.operator.cpp",
+                  "settings": {
+                    "foreground": "#ffffff"
+                  }
+                },
+                {
+                  "scope": "variable.other.local.cpp",
+                  "settings": {
+                    "foreground": "#ffffff"
+                  }
+                },
+                {
+                  "scope": "storage",
+                  "settings": {
+                    "foreground": "#eaade0"
+                  }
+                },
+                {
+                  "scope": "entity.name.function.operator.member.cpp",
+                  "settings": {
+                    "foreground": "#ffffff"
+                  }
+                },
+                {
+                  "scope": "string",
+                  "settings": {
+                    "foreground": "#feaaf3ee"
+                  }
+                },
+                {
+                  "scope": "string.quoted.double.shell",
+                  "settings": {
+                    "foreground": "#ffffffdc" //ffffffdc
+                  }
+                },
+                {
+                  "scope": "string.interpolated.dollar.shell",
+                  "settings": {
+                    "foreground": "#ff9500"
+                  }
+                },
+                {
+                  "scope": "punctuation.support.type.property-name.end,punctuation.support.type.property-name.begin",
+                  "settings": {
+                    "foreground": "#e792ffd4"
+                  }
+                },
+                {
+                  "scope": "comment",
+                  "settings": {
+                    "foreground": "#b5bdf8f1",
+                    "fontStyle": "italic"
+                  }
+                }
+              ]
+            },
+          }
+        }
+      ],
+    },
+    {
       "id": "foldfix",
       "overrideWorkspaceSettings": false,
       "values": [
@@ -2098,7 +2168,7 @@
     "opacity": 0.88,
     "backgroundColor": "#0000000",
     "vibrancy": "ultra-dark",
-    "frame": false
+    "frame": false,
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-nevoid": 1
@@ -2184,6 +2254,19 @@
   "errorLens.exclude": [
     // "*.sh"
   ],
+  // --theme icon
+  "material-icon-theme.activeIconPack": "nest",
+  "workbench.productIconTheme": "el-vsc-v1-icons",
+  // --format
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  // --bracket
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.bracketPairs": true,
+  // --sticky scroll
+  "editor.stickyScroll.maxLineCount": 3,
   // --Indefinite
   "betterStatusBar.commands": [
     {
@@ -2195,20 +2278,13 @@
   ],
   "security.workspace.trust.untrustedFiles": "open",
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "editor.stickyScroll.maxLineCount": 3,
   "search.showLineNumbers": true,
-  "workbench.layoutControl.enabled": false,
   "window.commandCenter": true,
+  "workbench.layoutControl.enabled": false,
   "workbench.statusBar.visible": true,
-  "material-icon-theme.activeIconPack": "nest",
-  "workbench.productIconTheme": "el-vsc-v1-icons",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "editor.guides.bracketPairs": true,
+  "workbench.editor.showTabs": "multiple",
   "workbench.activityBar.location": "hidden",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "workbench.editor.showTabs": "multiple",
-  "window.zoomLevel": -0.82,
   "prettier.configPath": "$HOME/.config/vscode/.prettier",
   // "prettier.bracketSameLine": true
   "prettier.documentSelectors": [
@@ -2216,25 +2292,23 @@
   ],
   "editor.acceptSuggestionOnEnter": "smart",
   "C_Cpp.formatting": "clangFormat",
+  "shellscript.sheller.onSave.makeExecutable": true,
   "shellformat.useEditorConfig": true,
-  "shellformat.effectLanguages": [
-    "shellscript",
-    "dockerfile",
-    "dotenv",
-    "hosts",
-    "jvmoptions",
-    // "ignore",
-    "gitignore",
-    "properties",
-    "spring-boot-properties",
-    "azcli",
-    "bats"
-  ],
-  "editor.formatOnSave": true,
-  "editor.formatOnType": false,
-  "editor.formatOnPaste": true,
-  "shellformat.flag": "-d",
+  // "shellformat.effectLanguages": [
+  //   "shellscript",
+  //   "dockerfile",
+  //   "dotenv",
+  //   "hosts",
+  //   "jvmoptions",
+  //   // "ignore",
+  //   "gitignore",
+  //   "properties",
+  //   "spring-boot-properties",
+  //   "azcli",
+  //   "bats"
+  // ],
   "editor.lineNumbers": "on",
-  "editor.minimap.enabled": false,
   "editor.accessibilitySupport": "off",
+  "window.zoomLevel": -0.82,
+  "editor.minimap.enabled": false,
 }
