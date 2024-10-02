@@ -36,19 +36,20 @@
   - **Step 2:**
 	- **Method 1**
 	```sh
-	echo "\n# Homebrew" >> ~/.zprofile
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+	echo "\n# Homebrew" >> ~/.zprofile &&
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile &&
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 	```
 	- **Method 2**
 	```sh
 	# This method will not be able to use the tab to completion the command.
-	cd /opt/homebrew/bin/
-	PATH=$PATH:/opt/homebrew/bin
-	cd ~
-	echo "\n# Homebrew" >> ~/.zshrc
-	echo 'export PATH=$PATH:/opt/homebrew/bin' >> .zshrc
+	cd /opt/homebrew/bin/ &&
+	PATH=$PATH:/opt/homebrew/bin &&
+	cd ~ &&
+	echo "\n# Homebrew" >> ~/.zshrc &&
+	echo 'export PATH=$PATH:/opt/homebrew/bin' >> .zshrc 
 	```
+- ### **My Formulae && cask**
 
 # **Theme**
 ***Requirement:*** `brew`[<sub>*§*</sub>](#brew)
