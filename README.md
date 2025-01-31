@@ -59,7 +59,7 @@
 
 - **First step:** *Install Hack nerd font.*
 	```sh
-	brew tap homebrew/cask-fonts
+	brew tap homebrew/cask-fonts &&
 	brew install font-hack-nerd-font
 	```
 - **Next step:** *setup font.*
@@ -72,8 +72,8 @@
 ***Requirement:*** `brew`[<sub>*§*</sub>](#brew) 
 - #### **install**:
 	```sh
-	brew install powerlevel10k
-	echo "\n# Powerlevel 10k" >> ~/.zshrc
+	brew install powerlevel10k &&
+	echo "\n# Powerlevel 10k" >> ~/.zshrc &&
 	echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 	```	
 
@@ -96,9 +96,10 @@
 	```
 - **Step 3:**
 	```sh
-	echo '\n# autojump' >> ~/.zshrc
-	echo '[[ -s /Users/huynguyen/.autojump/etc/profile.d/autojump.sh ]]' >> ~/.zshrc
-	echo 'source /Users/huynguyen/.autojump/etc/profile.d/autojump.sh' >> ~/.zshrc
+ 	cd ~ &&
+	echo '\n# autojump' >> ~/.zshrc &&
+	echo '[[ -s /Users/huynguyen/.autojump/etc/profile.d/autojump.sh ]]' >> ~/.zshrc &&
+	echo 'source /Users/huynguyen/.autojump/etc/profile.d/autojump.sh' >> ~/.zshrc &&
 	echo "autoload -U compinit ; compinit" >> ~/.zshrc
 	```
 ---
@@ -159,7 +160,7 @@ cd ~/.config/zsh/autojump &&
 ### **Install**
 ```sh
 sudo gem install colorls &&
-echo "\n# Colors (icon for file and folder, similar as "ls" command)" >> ~/.zshrc
+echo "\n# Colors (icon for file and folder, similar as "ls" command)" >> ~/.zshrc &&
 echo 'source $(dirname $(gem which colorls))/tab_complete.sh' >> ~/.zshrc
 ```
 
@@ -175,7 +176,7 @@ echo 'source $(dirname $(gem which colorls))/tab_complete.sh' >> ~/.zshrc
 
 - #### more
 	```sh
-	echo "\n# code command - visual studio code" >> ~/.zshrc  
+	echo "\n# code command - visual studio code" >> ~/.zshrc &&
 	echo 'export PATH="$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"' >> ~/.zshrc
 	```
 	
