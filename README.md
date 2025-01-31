@@ -86,12 +86,12 @@
 ### **Install**
 - **Step 1:**
 	```sh
-	cd ~/.config/zsh
+	cd ~/.config/zsh &&
 	git clone https://github.com/wting/autojump.git
 	```
 - **Step 2:**
 	```sh
-	cd ~/.config/zsh/autojump
+	cd ~/.config/zsh/autojump &&
 	./install.py 			
 	```
 - **Step 3:**
@@ -106,7 +106,7 @@
 ### **Uninstall**
 
 ```sh
-cd ~/.config/zsh/autojump
+cd ~/.config/zsh/autojump &&
 ./uninstall.py
 ```
 
@@ -117,7 +117,7 @@ cd ~/.config/zsh/autojump
 ***Requirement***: `git`
 - ### Install
 	```sh
-	cd ~/.oh-my-zsh/custom/plugins
+	cd ~/.oh-my-zsh/custom/plugins &&
 	git clone https://github.com/zsh-users/zsh-autosuggestions.git
 	```		
 // add zsh-autosuggestions to .zshrc
@@ -129,7 +129,7 @@ cd ~/.config/zsh/autojump
 ***Requirement***: `git`
 - ### **Install**
 	```sh
-	cd ~/.oh-my-zsh/custom/plugins
+	cd ~/.oh-my-zsh/custom/plugins &&
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 	```	
 // add zsh-syntax-highlighting to .zshrc
@@ -141,7 +141,7 @@ cd ~/.config/zsh/autojump
 ***Requirement***: `git`
 - ### **Install**
 	```sh
-	cd ~/.oh-my-zsh/custom/plugins
+	cd ~/.oh-my-zsh/custom/plugins &&
 	git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
 	```
 // add zsh-autocomplete to .zshrc
@@ -158,7 +158,7 @@ cd ~/.config/zsh/autojump
 - `gem` ***(gem --version)***
 ### **Install**
 ```sh
-sudo gem install colorls
+sudo gem install colorls &&
 echo "\n# Colors (icon for file and folder, similar as "ls" command)" >> ~/.zshrc
 echo 'source $(dirname $(gem which colorls))/tab_complete.sh' >> ~/.zshrc
 ```
