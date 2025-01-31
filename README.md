@@ -98,8 +98,8 @@
 	```sh
  	cd ~ &&
 	echo '\n# autojump' >> ~/.zshrc &&
-	echo '[[ -s /Users/huynguyen/.autojump/etc/profile.d/autojump.sh ]]' >> ~/.zshrc &&
-	echo 'source /Users/huynguyen/.autojump/etc/profile.d/autojump.sh' >> ~/.zshrc &&
+	echo "[[ -s /Users/$(whoami)/.autojump/etc/profile.d/autojump.sh ]]" >> ~/.zshrc &&
+	echo "source /Users/$(whoami)/.autojump/etc/profile.d/autojump.sh" >> ~/.zshrc &&
 	echo "autoload -U compinit ; compinit" >> ~/.zshrc
 	```
 ---
