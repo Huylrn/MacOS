@@ -75,7 +75,11 @@
  	cd ~ &&
 	echo "\n# Powerlevel 10k" >> ~/.zshrc &&
 	echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-	```	
+	```
+ - #### Config: Type it if the configuration wizard doesn't start automatically.
+	```sh
+	p10k configure
+	```
 
 # **Autojump**
 >More information about **`Autojump`** [*here.*](https://github.com/wting/autojump#manual)
@@ -173,6 +177,7 @@ cd ~/.config/zsh/autojump &&
 ***Requirement***: 
 - `Hack Nerd Font`[<sub>*§*</sub>](#1-font)
 - `gem` ***(gem --version)***
+	> 
 ### **Install**
 ```sh
 sudo gem install colorls &&
