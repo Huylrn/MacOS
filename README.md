@@ -59,7 +59,6 @@
 
 - **First step:** *Install Hack nerd font.*
 	```sh
-	brew tap homebrew/cask-fonts &&
 	brew install font-hack-nerd-font
 	```
 - **Next step:** *setup font.*
@@ -73,6 +72,7 @@
 - #### **install**:
 	```sh
 	brew install powerlevel10k &&
+ 	cd ~ &&
 	echo "\n# Powerlevel 10k" >> ~/.zshrc &&
 	echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 	```	
@@ -122,7 +122,12 @@ cd ~/.config/zsh/autojump &&
 	git clone https://github.com/zsh-users/zsh-autosuggestions.git
 	```		
 // add zsh-autosuggestions to .zshrc
-
+- #### <ins>ex</ins>:
+	```code
+ 	plugins=(zsh-autosuggestions
+ 		...
+ 	)
+	```
 
 # **zsh-syntax-highlighting**
 >More information about **`zsh-syntax-highlighting`** [*here.*](https://github.com/zsh-users/zsh-syntax-highlighting.git)
@@ -134,7 +139,12 @@ cd ~/.config/zsh/autojump &&
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 	```	
 // add zsh-syntax-highlighting to .zshrc
-
+- #### <ins>ex</ins>:
+	```code
+ 	plugins=(zsh-syntax-highlighting
+ 		...
+ 	)
+	```
 
 # **zsh-autocomplete**
 >More information about **`zsh-autocomplete`** [*here.*](https://github.com/marlonrichert/zsh-autocomplete#manual-installation)
@@ -146,6 +156,12 @@ cd ~/.config/zsh/autojump &&
 	git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git
 	```
 // add zsh-autocomplete to .zshrc
+- #### <ins>ex</ins>:
+	```code
+ 	plugins=(zsh-autocomplete
+ 		...
+ 	)
+	```
 - ### **Update**
 	```sh
 	% git -C ~autocomplete pull
