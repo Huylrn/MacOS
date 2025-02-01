@@ -186,7 +186,7 @@ echo 'source $(dirname $(gem which colorls))/tab_complete.sh' >> ~/.zshrc
 ```
 
 # **Issues**
-> My issues is  [*here.*](Content/my_issues.md)
+> My issues is  [*here.*](autoconfig/Content/my_issues.md)
 ### **1. Code command for `Visual studio code`**
 
 - #### install from `visual studio code`:
